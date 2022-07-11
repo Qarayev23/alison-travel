@@ -1,0 +1,20 @@
+.chip-wrapper {
+    display: flex;
+    gap: rem(10);
+    flex-wrap: wrap;
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    background-color: $secondary-color;
+    @include font(14, 600, 10);
+    height: rem(40);
+    border-radius: rem(4);
+    padding: 0 rem(30);
+
+    &.active {
+        border: 1px solid $dark;
+    }
+}

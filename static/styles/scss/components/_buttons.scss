@@ -1,0 +1,19 @@
+.g-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(40);
+    width: 100%;
+    padding: 0 rem(30);
+    @include font(14,600,10);
+    border: 1px solid transparent;
+    color: white;
+    background: $main-color;
+    border-radius: rem(4);
+
+    &:hover {
+        color: $main-color;
+        background: transparent;
+        border-color: $main-color;
+    }
+}

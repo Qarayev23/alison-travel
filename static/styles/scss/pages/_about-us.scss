@@ -1,0 +1,107 @@
+.about-us {
+    .section-title {
+        padding-top: rem(30);
+        padding-bottom: rem(30);
+
+        @include breakpoint-max($desktop-width) {
+            padding-bottom: rem(15);
+        }
+    }
+
+    &__text {
+        @include font(16, 300, 20);
+        text-align: center;
+
+        @include breakpoint-max($desktop-width) {
+            font-size: rem(14);
+        }
+    }
+}
+
+.our-team {
+    display: flex;
+    align-items: center;
+    max-width: rem(630);
+    margin: auto;
+
+    &__img {
+        width: rem(200);
+        height: rem(200);
+        flex-shrink: 0;
+
+        @include breakpoint-max($tablet-width) {
+            width: rem(100);
+            height: rem(140);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: $secondary-color;
+        border-radius: 0px 4px 4px 0px;
+        padding-left: rem(40);
+        height: rem(200);
+        width: 100%;
+
+        @include breakpoint-max($tablet-width) {
+            padding-left: rem(12);
+            height: rem(140)
+        }
+    }
+
+    &__name {
+        @include font(18, 500, 21);
+        margin-bottom: rem(5);
+
+        @include breakpoint-max($tablet-width) {
+            font-size: rem(14);
+            margin-bottom: rem(3);
+        }
+    }
+
+    &__position {
+        @include font(14, 400, 16);
+        color: $gray2;
+
+        @include breakpoint-max($tablet-width) {
+            font-size: rem(12);
+        }
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+        margin-top: rem(30);
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+            color: $dark;
+            @include font(14, 400, 16);
+        }
+
+        @include breakpoint-max($tablet-width) {
+            margin-top: rem(15);
+
+            a {
+                gap: rem(5);
+                font-size: rem(12);
+
+                img {
+                    width: rem(15);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,370 @@
+.popular-destination {
+    position: relative;
+
+    @include breakpoint-max($tablet-width) {
+        padding-bottom: rem(30);
+    }
+
+    &-card {
+        &__img {
+            height: rem(350);
+            overflow: hidden;
+            border-radius: rem(4);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: rem(4);
+                transition: 0.3s;
+
+                &:hover {
+                    @include breakpoint-min($mobile-width) {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        &__footer {
+            background: $secondary-color;
+            border-radius: 0px 0px 4px 4px;
+            height: rem(50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: rem(10);
+            color: $dark;
+        }
+
+        &__flag {
+            width: rem(30);
+            height: rem(20);
+            transform: translateY(-1px);
+            border-radius: rem(3);
+        }
+    }
+}
+
+.top-destination {
+    &__nav {
+        display: flex;
+        justify-content: center;
+        gap: rem(10);
+
+        @include breakpoint-max($tablet-width) {
+            display: none;
+        }
+    }
+
+    &__link {
+        height: rem(40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $dark;
+        border-radius: rem(4);
+        padding: 0 rem(30);
+        font-size: rem(14);
+        color: $dark;
+
+        &.active {
+            background-color: $main-color;
+            color: white;
+            border-color: $main-color;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        gap: rem(50);
+    }
+
+    &__info {
+        width: 48%;
+
+        @include breakpoint-max($desktop-sm-width) {
+            width: 100%;
+        }
+    }
+
+    &__img {
+        width: 52%;
+        height: rem(450);
+
+        @include breakpoint-max($desktop-sm-width) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: rem(4);
+        }
+    }
+
+    &__text {
+        @include font(16, 400, 21);
+        margin-top: rem(35);
+        margin-bottom: rem(35);
+    }
+}
+
+.apply-banner {
+    height: rem(300);
+    position: relative;
+
+    &__wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__img {
+        height: 100%;
+        max-width: calc(100% - #{rem(80)} * 2);
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        object-fit: cover;
+        border-radius: rem(4);
+        z-index: -1;
+
+        @include breakpoint-max($desktop-width) {
+            max-width: calc(100% - #{rem(80 / 2)} * 2);
+        }
+
+        @include breakpoint-max($tablet-width) {
+            max-width: 100%;
+            border-radius: 0;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        max-width: calc(100% - #{rem(80)} * 2);
+        width: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        background: #140E3333;
+        opacity: 0.2;
+
+        @include breakpoint-max($desktop-width) {
+            max-width: calc(100% - #{rem(80 / 2)} * 2);
+        }
+
+        @include breakpoint-max($tablet-width) {
+            max-width: 100%;
+        }
+    }
+
+    &__title {
+        @include font(38, 700, 45);
+        text-align: center;
+        color: white;
+        margin-bottom: rem(30);
+
+        @include breakpoint-max($tablet-width) {
+            @include font(30, 700, 35);
+            padding: 0 rem(30);
+            margin-bottom: rem(20);
+        }
+    }
+
+    .g-btn {
+        width: rem(164);
+
+        &:hover {
+            border-color: transparent;
+            background-color: white;
+        }
+    }
+}
+
+.hotel-booking {
+    &-card {
+        &__img {
+            height: rem(280);
+            overflow: hidden;
+            border-radius: 4px 4px 0px 0px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: 0.3s;
+                border-radius: 4px 4px 0px 0px;
+
+                &:hover {
+                    @include breakpoint-min($mobile-width) {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        &__body {
+            padding: rem(20);
+            display: flex;
+            flex-direction: column;
+            gap: rem(25);
+            box-shadow: 2px 2px 30px 0px #0000001A;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        &__title {
+            @include font(18, 600, 21);
+            color: $dark;
+        }
+
+        &__services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(10) rem(25);
+            justify-content: space-between;
+        }
+
+        &__service {
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+            @include font(14, 500);
+            color: $dark;
+            filter: brightness(0) saturate(100%) invert(77%) sepia(0%) saturate(2053%) hue-rotate(8deg) brightness(96%) contrast(91%);
+
+            &.active {
+                filter: initial;
+            }
+        }
+
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__country {
+            display: flex;
+            gap: rem(8);
+            align-items: center;
+            @include font(14, 500, 16);
+            color: $dark;
+
+            img {
+                width: rem(20);
+                height: rem(20);
+                border-radius: 50%;
+            }
+        }
+
+        &__rating {
+            display: flex;
+            gap: rem(7);
+
+            img {
+                width: rem(17);
+                height: rem(16);
+            }
+        }
+    }
+
+    .swiper-slide-duplicate-prev {
+        transform: translateX(-2px);
+
+        @include breakpoint-max($desktop-width) {
+            transform: translateX(0);
+        }
+    }
+
+    .swiper-slide-next {
+        transform: translateX(-2px);
+
+        @include breakpoint-min($desktop-width) {
+            transform: translateX(0);
+        }
+
+        @include breakpoint-max(576) {
+            transform: translateX(0);
+        }
+    }
+
+    .swiper-slide-active {
+        transform: translateX(2px);
+
+        @include breakpoint-max(576) {
+            transform: translateX(0);
+        }
+    }
+
+    &__slide {
+        padding-bottom: rem(50);
+
+        @include breakpoint-max($tablet-width) {
+            padding-bottom: rem(30);
+        }
+    }
+}
+
+.popular-activities {
+    padding-bottom: rem(20);
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: rem(15);
+        overflow-x: auto;
+        padding-bottom: rem(10);
+
+        &::-webkit-scrollbar {
+            margin: 0;
+            background: #f4f3f2;
+            height: rem(6);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $gray;
+        }
+
+        @include breakpoint-max($mobile-width) {
+            justify-content: flex-start;
+
+            &::-webkit-scrollbar {
+                height: rem(2);
+                background: transparent;
+            }
+        }
+    }
+
+    &__item {
+        background: $secondary-color;
+        border-radius: rem(4);
+        color: $dark;
+        height: rem(40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: rem(10);
+        @include font(14, 600, 14);
+        white-space: nowrap;
+        padding: 0 rem(30);
+    }
+
+    &__text {
+        margin-top: rem(30);
+        @include font(14, 400, 20);
+    }
+}

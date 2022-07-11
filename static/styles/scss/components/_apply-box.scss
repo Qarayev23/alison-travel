@@ -1,0 +1,42 @@
+.apply-box {
+    padding: rem(50);
+    background-color: $secondary-color;
+    border-radius: rem(4);
+
+    @include breakpoint-max($tablet-width) {
+        padding: rem(30) rem(16);
+        margin-left: rem(-16);
+        margin-right: rem(-16);
+
+        &--basket {
+            margin: 0;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: rem(20);
+        margin-bottom: rem(20);
+        border-bottom: 1px solid #E2E2E2;
+
+        @include breakpoint-max($tablet-width) {
+            display: none;
+        }
+    }
+
+    .tour-price {
+        font-size: rem(16);
+    }
+
+    &__caption {
+        @include font(18, 600, 21);
+    }
+
+    &__title {
+        @include font(18, 600, 21);
+        margin-bottom: rem(20);
+        text-align: center;
+    }
+}

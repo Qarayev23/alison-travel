@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./static/styles/css/min/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/styles/css/min/select2.min.css">
+    <!-- ADDITIONAL START -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css" rel="stylesheet">
+    <!-- ADDITIONAL END -->
+    <link rel="stylesheet" href="./static/styles/css/main.min.css">
+    <title>ALISON TRAVEL</title>
+</head>
+
+<body>
+    <section class="dashboard">
+        <div class="dashboard__wrapper">
+            <div class="sidebar">
+                <div class="sidebar__wrapper">
+                    <a href="" class="dashboard__logo">
+                        <img src="./static/assets/svg/dashboard-logo.svg" alt="">
+                    </a>
+
+                    <button class="sidebar-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <a href="./profile.html" class="profile-avatar d-sm-none">
+                        <img src="./static/assets/svg/Ellipse 1.svg" alt="">
+                        <span>Cameron Williamson</span>
+                    </a>
+
+                    <div class="dashboard-nav">
+                        <a href="./dashboard.html" class="dashboard-nav__item">
+                            <img src="./static/assets/svg/globe-05.svg" alt="">
+                            Destination
+                        </a>
+                        <a href="./dashboard.html" class="dashboard-nav__item">
+                            <img src="./static/assets/svg/building-01.svg" alt="">
+                            Hotel
+                        </a>
+                        <a href="./dashboard.html" class="dashboard-nav__item">
+                            <img src="./static/assets/svg/rocket-02.svg" alt="">
+                            Sightseeing
+                        </a>
+                        <a href="./dashboard.html" class="dashboard-nav__item">
+                            <img src="./static/assets/svg/marker-pin-06.svg" alt="">
+                            Guide
+                        </a>
+
+                        <div class="line"></div>
+
+                        <button class="log-out">
+                            <img src="./static/assets/svg/log-out-01.svg" alt="">
+                            Sign out
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="main">
+                <div class="dashboard-header">
+                    <div class="d-flex gap-5">
+                        <button class="sidebar-open d-xl-none">
+                            <img src="./static/assets/svg/iconoir_menu (1).svg" alt="">
+                        </button>
+
+                        <div class="d-lg-flex flex-column d-none">
+                            <h1 class="dashboard-header__title">
+                                Build your perfect tour package
+                            </h1>
+                            <h3 class="dashboard-header__subtitle">
+                                Enter details to create your perfect tour package
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-header__right">
+                        <div class="dropdown d-lang-dropdown">
+                            <button class="dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="./static/assets/svg/Mask group.svg" alt="">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="langDropdown">
+                                <button class="dropdown-item" href="">
+                                    <img src="./static/assets/svg/Mask group.svg" alt="">
+                                </button>
+                                <button class="dropdown-item" href="">
+                                    <img src="./static/assets/svg/Mask group.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+
+                        <a href="./basket.html" class="basket-icon">
+                            <img src="./static/assets/svg/shopping-bag-03.svg" alt="">
+                            <span class="basket-count">3</span>
+                        </a>
+
+                        <a href="./profile.html" class="profile-avatar d-none d-sm-flex">
+                            <img src="./static/assets/svg/Ellipse 1.svg" alt="">
+                            <span>Cameron Williamson</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="basket">
+                    <p class="content-title mb-4">Check your requests</p>
+                    <div class="basket__wrapper">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Voucher number:</label>
+                                <input type="text" class="d-input" value="21-0124" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Client name:</label>
+                                <input type="text" class="d-input" value="MR. MOUSA ABDULLAH ASIRI" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Date:</label>
+                                <input type="text" class="d-input" value="12/06 - 18/06" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Adults</label>
+                                        <input type="text" class="d-input" value="2" disabled>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Children</label>
+                                        <input type="text" class="d-input" value="3" disabled>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Kids</label>
+                                        <input type="text" class="d-input" value="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basket__result">
+                            <p class="subtotal">
+                                Subtotal: <span>$960</span>
+                            </p>
+                            <p class="total">
+                                Total: <span>$1240</span>
+                            </p>
+                            <span class="basket__status basket__status--approved">Approved</span>
+                        </div>
+                    </div>
+                    <div class="basket__wrapper">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Voucher number:</label>
+                                <input type="text" class="d-input" value="21-0124" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Client name:</label>
+                                <input type="text" class="d-input" value="MR. MOUSA ABDULLAH ASIRI" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Date:</label>
+                                <input type="text" class="d-input" value="12/06 - 18/06" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Adults</label>
+                                        <input type="text" class="d-input" value="2" disabled>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Children</label>
+                                        <input type="text" class="d-input" value="3" disabled>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Kids</label>
+                                        <input type="text" class="d-input" value="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basket__result">
+                            <p class="subtotal">
+                                Subtotal: <span>$960</span>
+                            </p>
+                            <p class="total">
+                                Total: <span>$1240</span>
+                            </p>
+                            <span class="basket__status basket__status--waiting">Waiting</span>
+                        </div>
+                    </div>
+                    <div class="basket__wrapper">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Voucher number:</label>
+                                <input type="text" class="d-input" value="21-0124" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Client name:</label>
+                                <input type="text" class="d-input" value="MR. MOUSA ABDULLAH ASIRI" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="" class="d-label">Date:</label>
+                                <input type="text" class="d-input" value="12/06 - 18/06" disabled>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Adults</label>
+                                        <input type="text" class="d-input" value="2" disabled>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Children</label>
+                                        <input type="text" class="d-input" value="3" disabled>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Kids</label>
+                                        <input type="text" class="d-input" value="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="error-text">
+                                    <img src="./static/assets/svg/x-circle.svg" alt="">
+                                    Error: Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                                    Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                                    nostrud amet.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basket__result">
+                            <p class="subtotal">
+                                Subtotal: <span>$960</span>
+                            </p>
+                            <p class="total">
+                                Total: <span>$1240</span>
+                            </p>
+                            <span class="basket__status basket__status--declined">Declined</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="backdrop"></div>
+
+    <script src="./static/js/min/jquery.min.js"></script>
+    <script src="./static/js/min/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./static/js/min/select2.min.js"></script>
+    <!-- ADDITIONAL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.js"></script>
+    <script src="./static/js/dashboard-main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+.services {
+    background-color: $secondary-color;
+
+    &__wrapper {
+        height: rem(120);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include breakpoint-max($tablet-width) {
+            height: initial;
+            row-gap: rem(33);
+            padding-top: rem(30);
+            padding-bottom: rem(30);
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: rem(20);
+
+        p {
+            max-width: rem(90);
+            @include font(18, 400, 21);
+        }
+
+
+        @include breakpoint-max($tablet-width) {
+            width: 50%;
+
+            p {
+                @include font(14, 600, 16);
+            }
+
+            img {
+                width: rem(33);
+            }
+
+            &:nth-child(odd) {
+                padding-left: rem(100);
+                justify-content: flex-start;
+            }
+
+            &:nth-child(even) {
+                padding-right: rem(100);
+                justify-content: flex-end;
+            }
+        }
+
+        @include breakpoint-max(576) {
+            padding: 0 !important;
+        }
+    }
+}

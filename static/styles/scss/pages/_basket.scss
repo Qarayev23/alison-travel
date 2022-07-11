@@ -1,0 +1,78 @@
+.basket {
+    background-color: white;
+    padding: rem(24) rem(52);
+    margin-top: rem(64);
+
+    &__wrapper {
+        background: #FAFAFA;
+        padding: rem(24) rem(34);
+        display: flex;
+        gap: rem(50);
+
+        &:nth-child(odd) {
+            background: white;
+        }
+    }
+
+    &__result {
+        display: flex;
+        flex-direction: column;
+        width: rem(150);
+        flex-shrink: 0;
+        padding-top: rem(34);
+
+        .subtotal {
+            margin-bottom: rem(14);
+            font-weight: 400;
+        }
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 4px;
+        @include font(14, 600, 28);
+        width: 100%;
+        height: rem(36);
+        margin-top: rem(16);
+        cursor: pointer;
+
+        &--approved {
+            background: #149D63;
+        }
+
+        &--waiting {
+            background: #F2B66D;
+            color: $dark;
+        }
+
+        &--declined {
+            background: #E04B4B;
+        }
+    }
+
+    .row {
+        --bs-gutter-y: 1rem;
+    }
+
+    .error-text {
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+        color: #E04B4B;
+        @include font(14, 400, 18);
+    }
+
+    @include breakpoint-max(991) {
+        padding: rem(24) rem(16);
+        margin-top: rem(30);
+
+        &__wrapper {
+            flex-direction: column;
+            gap: rem(20);
+            padding: rem(24) rem(16);
+        }
+    }
+}

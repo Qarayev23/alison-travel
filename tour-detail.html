@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./static/styles/css/min/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/styles/css/min/select2.min.css">
+    <link rel="stylesheet" href="./static/styles/css/main.min.css">
+    <title>ALISON TRAVEL</title>
+</head>
+
+<body>
+    <!-- Review Modal -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    <img src="./static/assets/svg/Clear (1).svg" alt="">
+                </button>
+
+                <div class="modal-body">
+                    <p class="modal-title">
+                        Write review
+                    </p>
+
+                    <form action="">
+                        <div class="row gy-3">
+                            <div class="col-lg-6">
+                                <input type="text" class="g-input" placeholder="Full name">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="g-select-wrapper">
+                                    <select id="country" class="g-select" name="states[]" style="width: 100%;">
+                                        <option></option>
+                                        <option value='Azerbaijan'>Azerbaijan</option>
+                                        <option value='Turkey'>Turkey</option>
+                                        <option value='Russian'>Russian</option>
+                                    </select>
+                                    <img src="./static/assets/svg/down.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="g-input" placeholder="Your message" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="star-rating">
+                            <div class="star-rating__score">
+                                <span class="star-rating__number"></span> / 5.0
+                            </div>
+
+                            <div class="star-rating__wrapper">
+                                <input class="rating-radio" type="radio" id="star-5" name="rating" value="5" />
+                                <label for="star-5" class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21"
+                                        fill="none">
+                                        <path
+                                            d="M10.5245 1.46352C10.6742 1.00287 11.3259 1.00287 11.4755 1.46353L13.3574 7.25532C13.4243 7.46133 13.6163 7.60081 13.8329 7.60081H19.9228C20.4071 7.60081 20.6085 8.22062 20.2167 8.50532L15.2899 12.0848C15.1146 12.2122 15.0413 12.4379 15.1083 12.6439L16.9901 18.4357C17.1398 18.8963 16.6126 19.2794 16.2207 18.9947L11.2939 15.4152C11.1187 15.2878 10.8814 15.2878 10.7061 15.4152L5.77932 18.9947C5.38747 19.2794 4.86023 18.8963 5.0099 18.4357L6.89177 12.6439C6.95871 12.4379 6.88538 12.2122 6.71013 12.0849L1.78334 8.50532C1.39148 8.22062 1.59287 7.60081 2.07723 7.60081H8.16709C8.3837 7.60081 8.57568 7.46133 8.64261 7.25532L10.5245 1.46352Z"
+                                            fill="white" />
+                                        <path
+                                            d="M1.78334 8.50532L2.37112 7.6963L1.78334 8.50532ZM6.71013 12.0849L6.12235 12.8939L6.71013 12.0849ZM5.77932 18.9947L6.36711 19.8037L5.77932 18.9947ZM5.0099 18.4357L4.05885 18.1266L5.0099 18.4357ZM11.2939 15.4152L10.7061 16.2242L11.2939 15.4152ZM10.7061 15.4152L10.1183 14.6061L10.7061 15.4152ZM16.9901 18.4357L16.0391 18.7447L16.9901 18.4357ZM16.2207 18.9947L16.8085 18.1857L16.2207 18.9947ZM15.2899 12.0848L14.7021 11.2758L15.2899 12.0848ZM15.1083 12.6439L14.1572 12.9529L15.1083 12.6439ZM20.2167 8.50532L19.6289 7.69631L20.2167 8.50532ZM10.5245 1.46352L9.57343 1.15451L10.5245 1.46352ZM10.5245 1.77254L12.4064 7.56434L14.3085 6.94631L12.4266 1.15451L10.5245 1.77254ZM13.8329 8.60081H19.9228V6.60081H13.8329V8.60081ZM19.6289 7.69631L14.7021 11.2758L15.8777 12.8939L20.8045 9.31434L19.6289 7.69631ZM14.1572 12.9529L16.0391 18.7447L17.9412 18.1266L16.0593 12.3349L14.1572 12.9529ZM16.8085 18.1857L11.8817 14.6061L10.7061 16.2242L15.6329 19.8037L16.8085 18.1857ZM10.1183 14.6061L5.19154 18.1857L6.36711 19.8037L11.2939 16.2242L10.1183 14.6061ZM5.96096 18.7447L7.84283 12.9529L5.94071 12.3349L4.05885 18.1266L5.96096 18.7447ZM7.29792 11.2758L2.37112 7.6963L1.19555 9.31434L6.12235 12.8939L7.29792 11.2758ZM2.07723 8.60081H8.16709V6.60081H2.07723V8.60081ZM9.59367 7.56434L11.4755 1.77254L9.57343 1.15451L7.69156 6.94631L9.59367 7.56434ZM8.16709 8.60081C8.81692 8.60081 9.39286 8.18237 9.59367 7.56434L7.69156 6.94631C7.75849 6.74029 7.95047 6.60081 8.16709 6.60081V8.60081ZM2.37112 7.6963C2.76299 7.98101 2.56159 8.60081 2.07723 8.60081V6.60081C0.624153 6.60081 0.019978 8.46023 1.19555 9.31434L2.37112 7.6963ZM7.84283 12.9529C8.04364 12.3348 7.82365 11.6578 7.29792 11.2758L6.12235 12.8939C5.94711 12.7665 5.87378 12.5409 5.94071 12.3349L7.84283 12.9529ZM5.19154 18.1857C5.5834 17.901 6.11063 18.284 5.96096 18.7447L4.05885 18.1266C3.60982 19.5086 5.19153 20.6578 6.36711 19.8037L5.19154 18.1857ZM11.8817 14.6061C11.356 14.2242 10.6441 14.2242 10.1183 14.6061L11.2939 16.2242C11.1187 16.3515 10.8814 16.3515 10.7061 16.2242L11.8817 14.6061ZM16.0391 18.7447C15.8894 18.284 16.4166 17.901 16.8085 18.1857L15.6329 19.8037C16.8085 20.6578 18.3902 19.5086 17.9412 18.1266L16.0391 18.7447ZM14.7021 11.2758C14.1764 11.6578 13.9564 12.3348 14.1572 12.9529L16.0593 12.3349C16.1262 12.5409 16.0529 12.7665 15.8777 12.8939L14.7021 11.2758ZM19.9228 8.60081C19.4384 8.60081 19.237 7.98101 19.6289 7.69631L20.8045 9.31434C21.98 8.46023 21.3759 6.60081 19.9228 6.60081V8.60081ZM12.4064 7.56434C12.6072 8.18237 13.1831 8.60081 13.8329 8.60081V6.60081C14.0495 6.60081 14.2415 6.74029 14.3085 6.94631L12.4064 7.56434ZM12.4266 1.15451C11.9776 -0.227453 10.0225 -0.227462 9.57343 1.15451L11.4755 1.77254C11.3259 2.2332 10.6742 2.23319 10.5245 1.77254L12.4266 1.15451Z"
+                                            fill="#F9DA5A" />
+                                    </svg>
+                                </label>
+                                <input class="rating-radio" type="radio" id="star-4" name="rating" value="4" />
+                                <label for="star-4" class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21"
+                                        fill="none">
+                                        <path
+                                            d="M10.5245 1.46352C10.6742 1.00287 11.3259 1.00287 11.4755 1.46353L13.3574 7.25532C13.4243 7.46133 13.6163 7.60081 13.8329 7.60081H19.9228C20.4071 7.60081 20.6085 8.22062 20.2167 8.50532L15.2899 12.0848C15.1146 12.2122 15.0413 12.4379 15.1083 12.6439L16.9901 18.4357C17.1398 18.8963 16.6126 19.2794 16.2207 18.9947L11.2939 15.4152C11.1187 15.2878 10.8814 15.2878 10.7061 15.4152L5.77932 18.9947C5.38747 19.2794 4.86023 18.8963 5.0099 18.4357L6.89177 12.6439C6.95871 12.4379 6.88538 12.2122 6.71013 12.0849L1.78334 8.50532C1.39148 8.22062 1.59287 7.60081 2.07723 7.60081H8.16709C8.3837 7.60081 8.57568 7.46133 8.64261 7.25532L10.5245 1.46352Z"
+                                            fill="white" />
+                                        <path
+                                            d="M1.78334 8.50532L2.37112 7.6963L1.78334 8.50532ZM6.71013 12.0849L6.12235 12.8939L6.71013 12.0849ZM5.77932 18.9947L6.36711 19.8037L5.77932 18.9947ZM5.0099 18.4357L4.05885 18.1266L5.0099 18.4357ZM11.2939 15.4152L10.7061 16.2242L11.2939 15.4152ZM10.7061 15.4152L10.1183 14.6061L10.7061 15.4152ZM16.9901 18.4357L16.0391 18.7447L16.9901 18.4357ZM16.2207 18.9947L16.8085 18.1857L16.2207 18.9947ZM15.2899 12.0848L14.7021 11.2758L15.2899 12.0848ZM15.1083 12.6439L14.1572 12.9529L15.1083 12.6439ZM20.2167 8.50532L19.6289 7.69631L20.2167 8.50532ZM10.5245 1.46352L9.57343 1.15451L10.5245 1.46352ZM10.5245 1.77254L12.4064 7.56434L14.3085 6.94631L12.4266 1.15451L10.5245 1.77254ZM13.8329 8.60081H19.9228V6.60081H13.8329V8.60081ZM19.6289 7.69631L14.7021 11.2758L15.8777 12.8939L20.8045 9.31434L19.6289 7.69631ZM14.1572 12.9529L16.0391 18.7447L17.9412 18.1266L16.0593 12.3349L14.1572 12.9529ZM16.8085 18.1857L11.8817 14.6061L10.7061 16.2242L15.6329 19.8037L16.8085 18.1857ZM10.1183 14.6061L5.19154 18.1857L6.36711 19.8037L11.2939 16.2242L10.1183 14.6061ZM5.96096 18.7447L7.84283 12.9529L5.94071 12.3349L4.05885 18.1266L5.96096 18.7447ZM7.29792 11.2758L2.37112 7.6963L1.19555 9.31434L6.12235 12.8939L7.29792 11.2758ZM2.07723 8.60081H8.16709V6.60081H2.07723V8.60081ZM9.59367 7.56434L11.4755 1.77254L9.57343 1.15451L7.69156 6.94631L9.59367 7.56434ZM8.16709 8.60081C8.81692 8.60081 9.39286 8.18237 9.59367 7.56434L7.69156 6.94631C7.75849 6.74029 7.95047 6.60081 8.16709 6.60081V8.60081ZM2.37112 7.6963C2.76299 7.98101 2.56159 8.60081 2.07723 8.60081V6.60081C0.624153 6.60081 0.019978 8.46023 1.19555 9.31434L2.37112 7.6963ZM7.84283 12.9529C8.04364 12.3348 7.82365 11.6578 7.29792 11.2758L6.12235 12.8939C5.94711 12.7665 5.87378 12.5409 5.94071 12.3349L7.84283 12.9529ZM5.19154 18.1857C5.5834 17.901 6.11063 18.284 5.96096 18.7447L4.05885 18.1266C3.60982 19.5086 5.19153 20.6578 6.36711 19.8037L5.19154 18.1857ZM11.8817 14.6061C11.356 14.2242 10.6441 14.2242 10.1183 14.6061L11.2939 16.2242C11.1187 16.3515 10.8814 16.3515 10.7061 16.2242L11.8817 14.6061ZM16.0391 18.7447C15.8894 18.284 16.4166 17.901 16.8085 18.1857L15.6329 19.8037C16.8085 20.6578 18.3902 19.5086 17.9412 18.1266L16.0391 18.7447ZM14.7021 11.2758C14.1764 11.6578 13.9564 12.3348 14.1572 12.9529L16.0593 12.3349C16.1262 12.5409 16.0529 12.7665 15.8777 12.8939L14.7021 11.2758ZM19.9228 8.60081C19.4384 8.60081 19.237 7.98101 19.6289 7.69631L20.8045 9.31434C21.98 8.46023 21.3759 6.60081 19.9228 6.60081V8.60081ZM12.4064 7.56434C12.6072 8.18237 13.1831 8.60081 13.8329 8.60081V6.60081C14.0495 6.60081 14.2415 6.74029 14.3085 6.94631L12.4064 7.56434ZM12.4266 1.15451C11.9776 -0.227453 10.0225 -0.227462 9.57343 1.15451L11.4755 1.77254C11.3259 2.2332 10.6742 2.23319 10.5245 1.77254L12.4266 1.15451Z"
+                                            fill="#F9DA5A" />
+                                    </svg>
+                                </label>
+                                <input class="rating-radio" type="radio" id="star-3" name="rating" value="3" />
+                                <label for="star-3" class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21"
+                                        fill="none">
+                                        <path
+                                            d="M10.5245 1.46352C10.6742 1.00287 11.3259 1.00287 11.4755 1.46353L13.3574 7.25532C13.4243 7.46133 13.6163 7.60081 13.8329 7.60081H19.9228C20.4071 7.60081 20.6085 8.22062 20.2167 8.50532L15.2899 12.0848C15.1146 12.2122 15.0413 12.4379 15.1083 12.6439L16.9901 18.4357C17.1398 18.8963 16.6126 19.2794 16.2207 18.9947L11.2939 15.4152C11.1187 15.2878 10.8814 15.2878 10.7061 15.4152L5.77932 18.9947C5.38747 19.2794 4.86023 18.8963 5.0099 18.4357L6.89177 12.6439C6.95871 12.4379 6.88538 12.2122 6.71013 12.0849L1.78334 8.50532C1.39148 8.22062 1.59287 7.60081 2.07723 7.60081H8.16709C8.3837 7.60081 8.57568 7.46133 8.64261 7.25532L10.5245 1.46352Z"
+                                            fill="white" />
+                                        <path
+                                            d="M1.78334 8.50532L2.37112 7.6963L1.78334 8.50532ZM6.71013 12.0849L6.12235 12.8939L6.71013 12.0849ZM5.77932 18.9947L6.36711 19.8037L5.77932 18.9947ZM5.0099 18.4357L4.05885 18.1266L5.0099 18.4357ZM11.2939 15.4152L10.7061 16.2242L11.2939 15.4152ZM10.7061 15.4152L10.1183 14.6061L10.7061 15.4152ZM16.9901 18.4357L16.0391 18.7447L16.9901 18.4357ZM16.2207 18.9947L16.8085 18.1857L16.2207 18.9947ZM15.2899 12.0848L14.7021 11.2758L15.2899 12.0848ZM15.1083 12.6439L14.1572 12.9529L15.1083 12.6439ZM20.2167 8.50532L19.6289 7.69631L20.2167 8.50532ZM10.5245 1.46352L9.57343 1.15451L10.5245 1.46352ZM10.5245 1.77254L12.4064 7.56434L14.3085 6.94631L12.4266 1.15451L10.5245 1.77254ZM13.8329 8.60081H19.9228V6.60081H13.8329V8.60081ZM19.6289 7.69631L14.7021 11.2758L15.8777 12.8939L20.8045 9.31434L19.6289 7.69631ZM14.1572 12.9529L16.0391 18.7447L17.9412 18.1266L16.0593 12.3349L14.1572 12.9529ZM16.8085 18.1857L11.8817 14.6061L10.7061 16.2242L15.6329 19.8037L16.8085 18.1857ZM10.1183 14.6061L5.19154 18.1857L6.36711 19.8037L11.2939 16.2242L10.1183 14.6061ZM5.96096 18.7447L7.84283 12.9529L5.94071 12.3349L4.05885 18.1266L5.96096 18.7447ZM7.29792 11.2758L2.37112 7.6963L1.19555 9.31434L6.12235 12.8939L7.29792 11.2758ZM2.07723 8.60081H8.16709V6.60081H2.07723V8.60081ZM9.59367 7.56434L11.4755 1.77254L9.57343 1.15451L7.69156 6.94631L9.59367 7.56434ZM8.16709 8.60081C8.81692 8.60081 9.39286 8.18237 9.59367 7.56434L7.69156 6.94631C7.75849 6.74029 7.95047 6.60081 8.16709 6.60081V8.60081ZM2.37112 7.6963C2.76299 7.98101 2.56159 8.60081 2.07723 8.60081V6.60081C0.624153 6.60081 0.019978 8.46023 1.19555 9.31434L2.37112 7.6963ZM7.84283 12.9529C8.04364 12.3348 7.82365 11.6578 7.29792 11.2758L6.12235 12.8939C5.94711 12.7665 5.87378 12.5409 5.94071 12.3349L7.84283 12.9529ZM5.19154 18.1857C5.5834 17.901 6.11063 18.284 5.96096 18.7447L4.05885 18.1266C3.60982 19.5086 5.19153 20.6578 6.36711 19.8037L5.19154 18.1857ZM11.8817 14.6061C11.356 14.2242 10.6441 14.2242 10.1183 14.6061L11.2939 16.2242C11.1187 16.3515 10.8814 16.3515 10.7061 16.2242L11.8817 14.6061ZM16.0391 18.7447C15.8894 18.284 16.4166 17.901 16.8085 18.1857L15.6329 19.8037C16.8085 20.6578 18.3902 19.5086 17.9412 18.1266L16.0391 18.7447ZM14.7021 11.2758C14.1764 11.6578 13.9564 12.3348 14.1572 12.9529L16.0593 12.3349C16.1262 12.5409 16.0529 12.7665 15.8777 12.8939L14.7021 11.2758ZM19.9228 8.60081C19.4384 8.60081 19.237 7.98101 19.6289 7.69631L20.8045 9.31434C21.98 8.46023 21.3759 6.60081 19.9228 6.60081V8.60081ZM12.4064 7.56434C12.6072 8.18237 13.1831 8.60081 13.8329 8.60081V6.60081C14.0495 6.60081 14.2415 6.74029 14.3085 6.94631L12.4064 7.56434ZM12.4266 1.15451C11.9776 -0.227453 10.0225 -0.227462 9.57343 1.15451L11.4755 1.77254C11.3259 2.2332 10.6742 2.23319 10.5245 1.77254L12.4266 1.15451Z"
+                                            fill="#F9DA5A" />
+                                    </svg>
+                                </label>
+                                <input class="rating-radio" type="radio" id="star-2" name="rating" value="2" />
+                                <label for="star-2" class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21"
+                                        fill="none">
+                                        <path
+                                            d="M10.5245 1.46352C10.6742 1.00287 11.3259 1.00287 11.4755 1.46353L13.3574 7.25532C13.4243 7.46133 13.6163 7.60081 13.8329 7.60081H19.9228C20.4071 7.60081 20.6085 8.22062 20.2167 8.50532L15.2899 12.0848C15.1146 12.2122 15.0413 12.4379 15.1083 12.6439L16.9901 18.4357C17.1398 18.8963 16.6126 19.2794 16.2207 18.9947L11.2939 15.4152C11.1187 15.2878 10.8814 15.2878 10.7061 15.4152L5.77932 18.9947C5.38747 19.2794 4.86023 18.8963 5.0099 18.4357L6.89177 12.6439C6.95871 12.4379 6.88538 12.2122 6.71013 12.0849L1.78334 8.50532C1.39148 8.22062 1.59287 7.60081 2.07723 7.60081H8.16709C8.3837 7.60081 8.57568 7.46133 8.64261 7.25532L10.5245 1.46352Z"
+                                            fill="white" />
+                                        <path
+                                            d="M1.78334 8.50532L2.37112 7.6963L1.78334 8.50532ZM6.71013 12.0849L6.12235 12.8939L6.71013 12.0849ZM5.77932 18.9947L6.36711 19.8037L5.77932 18.9947ZM5.0099 18.4357L4.05885 18.1266L5.0099 18.4357ZM11.2939 15.4152L10.7061 16.2242L11.2939 15.4152ZM10.7061 15.4152L10.1183 14.6061L10.7061 15.4152ZM16.9901 18.4357L16.0391 18.7447L16.9901 18.4357ZM16.2207 18.9947L16.8085 18.1857L16.2207 18.9947ZM15.2899 12.0848L14.7021 11.2758L15.2899 12.0848ZM15.1083 12.6439L14.1572 12.9529L15.1083 12.6439ZM20.2167 8.50532L19.6289 7.69631L20.2167 8.50532ZM10.5245 1.46352L9.57343 1.15451L10.5245 1.46352ZM10.5245 1.77254L12.4064 7.56434L14.3085 6.94631L12.4266 1.15451L10.5245 1.77254ZM13.8329 8.60081H19.9228V6.60081H13.8329V8.60081ZM19.6289 7.69631L14.7021 11.2758L15.8777 12.8939L20.8045 9.31434L19.6289 7.69631ZM14.1572 12.9529L16.0391 18.7447L17.9412 18.1266L16.0593 12.3349L14.1572 12.9529ZM16.8085 18.1857L11.8817 14.6061L10.7061 16.2242L15.6329 19.8037L16.8085 18.1857ZM10.1183 14.6061L5.19154 18.1857L6.36711 19.8037L11.2939 16.2242L10.1183 14.6061ZM5.96096 18.7447L7.84283 12.9529L5.94071 12.3349L4.05885 18.1266L5.96096 18.7447ZM7.29792 11.2758L2.37112 7.6963L1.19555 9.31434L6.12235 12.8939L7.29792 11.2758ZM2.07723 8.60081H8.16709V6.60081H2.07723V8.60081ZM9.59367 7.56434L11.4755 1.77254L9.57343 1.15451L7.69156 6.94631L9.59367 7.56434ZM8.16709 8.60081C8.81692 8.60081 9.39286 8.18237 9.59367 7.56434L7.69156 6.94631C7.75849 6.74029 7.95047 6.60081 8.16709 6.60081V8.60081ZM2.37112 7.6963C2.76299 7.98101 2.56159 8.60081 2.07723 8.60081V6.60081C0.624153 6.60081 0.019978 8.46023 1.19555 9.31434L2.37112 7.6963ZM7.84283 12.9529C8.04364 12.3348 7.82365 11.6578 7.29792 11.2758L6.12235 12.8939C5.94711 12.7665 5.87378 12.5409 5.94071 12.3349L7.84283 12.9529ZM5.19154 18.1857C5.5834 17.901 6.11063 18.284 5.96096 18.7447L4.05885 18.1266C3.60982 19.5086 5.19153 20.6578 6.36711 19.8037L5.19154 18.1857ZM11.8817 14.6061C11.356 14.2242 10.6441 14.2242 10.1183 14.6061L11.2939 16.2242C11.1187 16.3515 10.8814 16.3515 10.7061 16.2242L11.8817 14.6061ZM16.0391 18.7447C15.8894 18.284 16.4166 17.901 16.8085 18.1857L15.6329 19.8037C16.8085 20.6578 18.3902 19.5086 17.9412 18.1266L16.0391 18.7447ZM14.7021 11.2758C14.1764 11.6578 13.9564 12.3348 14.1572 12.9529L16.0593 12.3349C16.1262 12.5409 16.0529 12.7665 15.8777 12.8939L14.7021 11.2758ZM19.9228 8.60081C19.4384 8.60081 19.237 7.98101 19.6289 7.69631L20.8045 9.31434C21.98 8.46023 21.3759 6.60081 19.9228 6.60081V8.60081ZM12.4064 7.56434C12.6072 8.18237 13.1831 8.60081 13.8329 8.60081V6.60081C14.0495 6.60081 14.2415 6.74029 14.3085 6.94631L12.4064 7.56434ZM12.4266 1.15451C11.9776 -0.227453 10.0225 -0.227462 9.57343 1.15451L11.4755 1.77254C11.3259 2.2332 10.6742 2.23319 10.5245 1.77254L12.4266 1.15451Z"
+                                            fill="#F9DA5A" />
+                                    </svg>
+                                </label>
+                                <input class="rating-radio" type="radio" id="star-1" name="rating" value="1" />
+                                <label for="star-1" class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21"
+                                        fill="none">
+                                        <path
+                                            d="M10.5245 1.46352C10.6742 1.00287 11.3259 1.00287 11.4755 1.46353L13.3574 7.25532C13.4243 7.46133 13.6163 7.60081 13.8329 7.60081H19.9228C20.4071 7.60081 20.6085 8.22062 20.2167 8.50532L15.2899 12.0848C15.1146 12.2122 15.0413 12.4379 15.1083 12.6439L16.9901 18.4357C17.1398 18.8963 16.6126 19.2794 16.2207 18.9947L11.2939 15.4152C11.1187 15.2878 10.8814 15.2878 10.7061 15.4152L5.77932 18.9947C5.38747 19.2794 4.86023 18.8963 5.0099 18.4357L6.89177 12.6439C6.95871 12.4379 6.88538 12.2122 6.71013 12.0849L1.78334 8.50532C1.39148 8.22062 1.59287 7.60081 2.07723 7.60081H8.16709C8.3837 7.60081 8.57568 7.46133 8.64261 7.25532L10.5245 1.46352Z"
+                                            fill="white" />
+                                        <path
+                                            d="M1.78334 8.50532L2.37112 7.6963L1.78334 8.50532ZM6.71013 12.0849L6.12235 12.8939L6.71013 12.0849ZM5.77932 18.9947L6.36711 19.8037L5.77932 18.9947ZM5.0099 18.4357L4.05885 18.1266L5.0099 18.4357ZM11.2939 15.4152L10.7061 16.2242L11.2939 15.4152ZM10.7061 15.4152L10.1183 14.6061L10.7061 15.4152ZM16.9901 18.4357L16.0391 18.7447L16.9901 18.4357ZM16.2207 18.9947L16.8085 18.1857L16.2207 18.9947ZM15.2899 12.0848L14.7021 11.2758L15.2899 12.0848ZM15.1083 12.6439L14.1572 12.9529L15.1083 12.6439ZM20.2167 8.50532L19.6289 7.69631L20.2167 8.50532ZM10.5245 1.46352L9.57343 1.15451L10.5245 1.46352ZM10.5245 1.77254L12.4064 7.56434L14.3085 6.94631L12.4266 1.15451L10.5245 1.77254ZM13.8329 8.60081H19.9228V6.60081H13.8329V8.60081ZM19.6289 7.69631L14.7021 11.2758L15.8777 12.8939L20.8045 9.31434L19.6289 7.69631ZM14.1572 12.9529L16.0391 18.7447L17.9412 18.1266L16.0593 12.3349L14.1572 12.9529ZM16.8085 18.1857L11.8817 14.6061L10.7061 16.2242L15.6329 19.8037L16.8085 18.1857ZM10.1183 14.6061L5.19154 18.1857L6.36711 19.8037L11.2939 16.2242L10.1183 14.6061ZM5.96096 18.7447L7.84283 12.9529L5.94071 12.3349L4.05885 18.1266L5.96096 18.7447ZM7.29792 11.2758L2.37112 7.6963L1.19555 9.31434L6.12235 12.8939L7.29792 11.2758ZM2.07723 8.60081H8.16709V6.60081H2.07723V8.60081ZM9.59367 7.56434L11.4755 1.77254L9.57343 1.15451L7.69156 6.94631L9.59367 7.56434ZM8.16709 8.60081C8.81692 8.60081 9.39286 8.18237 9.59367 7.56434L7.69156 6.94631C7.75849 6.74029 7.95047 6.60081 8.16709 6.60081V8.60081ZM2.37112 7.6963C2.76299 7.98101 2.56159 8.60081 2.07723 8.60081V6.60081C0.624153 6.60081 0.019978 8.46023 1.19555 9.31434L2.37112 7.6963ZM7.84283 12.9529C8.04364 12.3348 7.82365 11.6578 7.29792 11.2758L6.12235 12.8939C5.94711 12.7665 5.87378 12.5409 5.94071 12.3349L7.84283 12.9529ZM5.19154 18.1857C5.5834 17.901 6.11063 18.284 5.96096 18.7447L4.05885 18.1266C3.60982 19.5086 5.19153 20.6578 6.36711 19.8037L5.19154 18.1857ZM11.8817 14.6061C11.356 14.2242 10.6441 14.2242 10.1183 14.6061L11.2939 16.2242C11.1187 16.3515 10.8814 16.3515 10.7061 16.2242L11.8817 14.6061ZM16.0391 18.7447C15.8894 18.284 16.4166 17.901 16.8085 18.1857L15.6329 19.8037C16.8085 20.6578 18.3902 19.5086 17.9412 18.1266L16.0391 18.7447ZM14.7021 11.2758C14.1764 11.6578 13.9564 12.3348 14.1572 12.9529L16.0593 12.3349C16.1262 12.5409 16.0529 12.7665 15.8777 12.8939L14.7021 11.2758ZM19.9228 8.60081C19.4384 8.60081 19.237 7.98101 19.6289 7.69631L20.8045 9.31434C21.98 8.46023 21.3759 6.60081 19.9228 6.60081V8.60081ZM12.4064 7.56434C12.6072 8.18237 13.1831 8.60081 13.8329 8.60081V6.60081C14.0495 6.60081 14.2415 6.74029 14.3085 6.94631L12.4064 7.56434ZM12.4266 1.15451C11.9776 -0.227453 10.0225 -0.227462 9.57343 1.15451L11.4755 1.77254C11.3259 2.2332 10.6742 2.23319 10.5245 1.77254L12.4266 1.15451Z"
+                                            fill="#F9DA5A" />
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="g-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-xl">
+            <div class="g-container">
+                <div class="navbar__desktop-wrapper">
+                    <a class="navbar-brand" href="./home.html">
+                        <img src="./static/assets/svg/logo.svg" alt="">
+                    </a>
+
+                    <div class="navbar__right">
+                        <ul class="navbar__list">
+                            <li class="navbar__item">
+                                <a href="./home.html" class="navbar__link navbar__link--active">Home</a>
+                            </li>
+                            <li class="navbar__item">
+                                <a href="./contact.html" class="navbar__link">Contact</a>
+                            </li>
+                            <li class="navbar__item">
+                                <a href="./sign-up.html" class="g-btn">B2B</a>
+                            </li>
+                        </ul>
+
+                        <div class="dropdown lang-dropdown">
+                            <button class="dropdown-toggle" type="button" id="selectLanguage" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="./static/assets/svg/Group (27).svg" alt="">
+                                English
+                                <img src="./static/assets/svg/Vector (38).svg" alt="">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="selectLanguage">
+                                <a class="dropdown-item" href="">Russian</a>
+                                <a class="dropdown-item" href="">Turkish</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar__mobile-wrapper">
+                    <button type="button" class="navbar__open">
+                        <img src="./static/assets/svg/iconoir_menu.svg" class="white-item" alt="">
+                        <img src="./static/assets/svg/iconoir_menu (1).svg" class="black-item" alt="">
+                    </button>
+
+                    <a class="navbar-brand" href="./home.html">
+                        <img src="./static/assets/svg/logo (1).svg" class="white-item" alt="">
+                        <img src="./static/assets/svg/logo.svg" class="black-item" alt="">
+                    </a>
+
+                    <a href="tel:+994702523315">
+                        <img src="./static/assets/svg/Vector (39).svg" class="white-item" alt="">
+                        <img src="./static/assets/svg/Vector (40).svg" class="black-item" alt="">
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="mob-navbar">
+            <div class="g-container h-100">
+                <div class="mob-navbar__wrapper">
+                    <button class="mob-navbar__close">
+                        <img src="./static/assets/svg/Vector.svg" alt="">
+                    </button>
+
+                    <a href="" class="mob-navbar__logo">
+                        <img src="./static/assets/svg/logo (1).svg" alt="">
+                    </a>
+
+                    <ul class="mob-navbar__list">
+                        <li class="mob-navbar__item">
+                            <a class="mob-navbar__link mob-navbar__link--active" href="./home.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="mob-navbar__item">
+                            <a class="mob-navbar__link" href="./contact.html">
+                                Contact
+                            </a>
+                        </li>
+                        <li class="mob-navbar__item">
+                            <a class="mob-navbar__link" href="./sign-up.html">
+                                B2B packages
+                            </a>
+                        </li>
+                        <li class="mob-navbar__item">
+                            <a class="mob-navbar__link" href="./pollicy.html">
+                                Cancellation policy
+                            </a>
+                        </li>
+                        <li class="mob-navbar__item">
+                            <a class="mob-navbar__link" href="./our-guests.html">
+                                Our guests
+                            </a>
+                        </li>
+                        <li class="mob-navbar__item">
+                            <a class="mob-navbar__link" href="./about-us.html">
+                                About us
+                            </a>
+                        </li>
+                        <li class="mob-navbar__item">
+                            <a class="mob-navbar__link" href="./news.html">
+                                Travel news
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="dropdown lang-dropdown ps-0 mt-5">
+                        <button class="dropdown-toggle" type="button" id="selectLanguage" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="./static/assets/svg/Group (27).svg" alt="">
+                            English
+                            <img src="./static/assets/svg/Vector (38).svg" alt="">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="selectLanguage">
+                            <a class="dropdown-item" href="">Russian</a>
+                            <a class="dropdown-item" href="">Turkish</a>
+                        </div>
+                    </div>
+
+                    <ul class="mob-navbar__socaial-icons mt-5">
+                        <li>
+                            <a href="">
+                                <img src="./static/assets/svg/Vector (1).svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="./static/assets/svg/cib_youtube.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="./static/assets/svg/Vector (2).svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <p class="mob-navbar__footer">
+                        Alison Travel 2021. All Rights Reserved
+                        Developed by <span>Trustme Digital</span>
+                    </p>
+                </div>
+            </div>
+            <div class="mob-navbar__bg"></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tour-detail">
+            <div class="g-container">
+                <ul class="g-breadcrumb">
+                    <li class="g-breadcrumb__item">
+                        Home
+                    </li>
+                    <li class="g-breadcrumb__item">
+                        Azerbaijan
+                    </li>
+                    <li class="g-breadcrumb__item g-breadcrumb__item--active">
+                        <a href="">
+                            Guba Tour
+                        </a>
+                    </li>
+                </ul>
+
+                <h1 class="section-title">
+                    Guba Hiking Tour
+                </h1>
+
+                <div class="tour-duration">
+                    <img src="./static/assets/svg/iconoir_clock-outline.svg" alt="">
+                    Duration: 5 days | 4 nights
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="rating">
+                        <img src="./static/assets/svg/Vector (8).svg" alt="">
+                        <img src="./static/assets/svg/Vector (8).svg" alt="">
+                        <img src="./static/assets/svg/Vector (8).svg" alt="">
+                        <img src="./static/assets/svg/Vector (8).svg" alt="">
+                        <img src="./static/assets/svg/Vector (8).svg" alt="">
+                        <span>5.0</span>
+                    </div>
+                    <p class="tour-price d-md-none">from <span>$128</span></p>
+                </div>
+
+                <div class="tour-detail-images">
+                    <div class="tour-detail-images__left">
+                        <img src="./static/assets/img/Frame 118.png" alt="">
+                    </div>
+
+                    <div class="tour-detail-images__right">
+                        <img src="./static/assets/img/Frame 122.png" alt="">
+                        <img src="./static/assets/img/Frame 121.png" alt="">
+                        <img src="./static/assets/img/Frame 120.png" alt="">
+                        <img src="./static/assets/img/Frame 123.png" alt="">
+                    </div>
+                </div>
+
+                <div class="position-relative d-md-none tour-detail-slide pb-1">
+                    <div id="tour-detail-slide" class="swiper pb-4">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img alt="" class="tour-detail-slide__img" src="./static/assets/img/Frame 118.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img alt="" class="tour-detail-slide__img" src="./static/assets/img/Frame 122.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img alt="" class="tour-detail-slide__img" src="./static/assets/img/Frame 121.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img alt="" class="tour-detail-slide__img" src="./static/assets/img/Frame 120.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img alt="" class="tour-detail-slide__img" src="./static/assets/img/Frame 123.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-gap">
+            <div class="g-container">
+                <div class="row gy-4">
+                    <div class="col-xl-6 col-lg-5">
+                        <div class="tour-includes">
+                            <p class="tour-includes__caption">Tour includes:</p>
+                            <ul class="tour-includes__list">
+                                <li class="tour-includes__item">
+                                    <h4 class="tour-includes__title">
+                                        Transfer
+                                    </h4>
+                                    <p class="tour-includes__content">
+                                        Transfer from airport to hotel, and from hotel to airport
+                                    </p>
+                                </li>
+                                <li class="tour-includes__item">
+                                    <h4 class="tour-includes__title">
+                                        Airplane ticket
+                                    </h4>
+                                    <p class="tour-includes__content">
+                                        Airplane ticket for both departure and arrival
+                                    </p>
+                                </li>
+                                <li class="tour-includes__item">
+                                    <h4 class="tour-includes__title">
+                                        Hotel
+                                    </h4>
+                                    <p class="tour-includes__content">
+                                        Hotel booking for the whole stay
+                                    </p>
+                                </li>
+                                <li class="tour-includes__item">
+                                    <h4 class="tour-includes__title">
+                                        Food
+                                    </h4>
+                                    <p class="tour-includes__content">
+                                        Breakfast, lunch and dinner included
+                                    </p>
+                                </li>
+                                <li class="tour-includes__item">
+                                    <h4 class="tour-includes__title">
+                                        Museum ticket
+                                    </h4>
+                                    <p class="tour-includes__content">
+                                        Museum tickets for up to 3 museums
+                                    </p>
+                                </li>
+                                <li class="tour-includes__item">
+                                    <h4 class="tour-includes__title">
+                                        Tours
+                                    </h4>
+                                    <p class="tour-includes__content">
+                                        Tours to historical places
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-7">
+                        <div class="apply-box">
+                            <div class="apply-box__header">
+                                <p class="apply-box__caption">Guba Hiking Tour</p>
+                                <p class="tour-price">per person from <span>$128</span></p>
+                            </div>
+                            <p class="apply-box__title">
+                                Book now
+                            </p>
+                            <form action="">
+                                <div class="row g-3">
+                                    <div class="col-lg-6">
+                                        <input type="text" class="g-input" placeholder="Full name">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="email" class="g-input" placeholder="Email">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex align-items-center">
+                                            <select class="prefix" name="states[]" style="min-width: 85px;">
+                                                <option value='+994'>+994</option>
+                                                <option value='+7'>+7</option>
+                                                <option value='+1'>+1</option>
+                                            </select>
+                                            <input type="text" class="g-input ms-2" placeholder="Phone number">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="g-select-wrapper">
+                                            <select id="nationality" name="states[]" style="width: 100%;">
+                                                <option></option>
+                                                <option value='Azerbaijan'>Azerbaijan</option>
+                                                <option value='Turkey'>Turkey</option>
+                                                <option value='Russian'>Russian</option>
+                                            </select>
+                                            <img src="./static/assets/svg/down.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="g-select-wrapper">
+                                            <select id="hotel-option" name="states[]" style="width: 100%;">
+                                                <option value='128'>Hotel-option #1 128$</option>
+                                                <option value='328'>Hotel-option #2 328$</option>
+                                                <option value='428'>Hotel-option #3 428$</option>
+                                            </select>
+                                            <img src="./static/assets/svg/down.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="g-input" cols="30" rows="7"
+                                            placeholder="Your message"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="g-btn w-100">
+                                            Check availability
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-gap bg-gray p-0">
+            <div class="tour-detail-nav">
+                <div class="g-container">
+                    <div class="nav tour-detail-nav__wrapper" role="tablist">
+                        <button class="tour-detail-nav__item active" data-bs-toggle="tab" data-bs-target="#overview"
+                            type="button" role="tab" aria-selected="true">
+                            Overview
+                        </button>
+                        <button class="tour-detail-nav__item" data-bs-toggle="tab" data-bs-target="#itinerary"
+                            type="button" role="tab" aria-selected="false">
+                            Itinerary
+                        </button>
+                        <button class="tour-detail-nav__item" data-bs-toggle="tab" data-bs-target="#hotel-options"
+                            type="button" role="tab" aria-selected="false">
+                            Hotel options
+                        </button>
+                        <button class="tour-detail-nav__item" data-bs-toggle="tab" data-bs-target="#cancellation-policy"
+                            type="button" role="tab" aria-selected="false">
+                            Cancellation policy
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="g-container">
+                <div class="tab-content tour-detail-tab">
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                        <div class="tour-detail-tab__content fixed-height-text">
+                            <p>Take a 60-minute boat ride to within 100 feet of the Statue of Liberty. Cruise right
+                                under the
+                                Brooklyn Bridge and see the most famous skyline in the world.
+                            </p>
+                            <br>
+                            <p> Your live English guide will point out the sites as you journey along the river
+                                including the
+                                Empire State Building, the new Freedom Tower, the Manhattan Bridge, Governor's Island,
+                                and more.
+                                Make use of both the indoor and outdoor seating, along with large open windows for your
+                                viewing
+                                pleasure.
+                            </p>
+                            <br>
+                            <p> Get within touching distance of "Lady Liberty" and then move on to Ellis Island to take
+                                photos
+                                of the famous entry point to New York City. Marvel at the skyline of Manhattan and its
+                                famous
+                                skyscrapers, including the new One World Trade Center.
+                            </p>
+                            <br>
+                            <p>Glide down both the east and west sides of Lower Manhattan on this roundtrip cruise, and
+                                purchase drinks and food from the concession stand aboard the boat.
+                            </p>
+                            <button class="fixed-height-text__more">
+                                Read more
+                                <img src="./static/assets/svg/show-more.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="itinerary" role="tabpanel">
+                        <div class="row gy-3 d-none d-lg-flex">
+                            <div class="col-lg-6">
+                                <div class="nav option-nav" role="tablist">
+                                    <button class="option-nav-item active" data-bs-toggle="tab"
+                                        data-bs-target="#first-day" type="button" role="tab" aria-selected="true">
+                                        <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                                fill="" />
+                                            <path
+                                                d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                                fill="" />
+                                        </svg>
+
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">First day</h5>
+                                            <p class="option-nav-item__text">
+                                                Arriving in Azerbaijan and travel to Guba
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                    <button class="option-nav-item" data-bs-toggle="tab" data-bs-target="#second-day"
+                                        type="button" role="tab" aria-selected="false">
+                                        <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                                fill="" />
+                                            <path
+                                                d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                                fill="" />
+                                        </svg>
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">Second day</h5>
+                                            <p class="option-nav-item__text">
+                                                Arriving in Azerbaijan and travel to Guba
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                    <button class="option-nav-item" data-bs-toggle="tab" data-bs-target="#third-day"
+                                        type="button" role="tab" aria-selected="false">
+                                        <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                                fill="" />
+                                            <path
+                                                d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                                fill="" />
+                                        </svg>
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">Third Day</h5>
+                                            <p class="option-nav-item__text">
+                                                Arriving in Azerbaijan and travel to Guba
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                    <button class="option-nav-item" data-bs-toggle="tab" data-bs-target="#fourth-day"
+                                        type="button" role="tab" aria-selected="false">
+                                        <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                                fill="" />
+                                            <path
+                                                d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                                fill="" />
+                                        </svg>
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">Fourth day</h5>
+                                            <p class="option-nav-item__text">
+                                                Arriving in Azerbaijan and travel to Guba
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="first-day" role="tabpanel">
+                                        <div class="itinerary-tab">
+                                            <h5 class="itinerary-tab__title">
+                                                First day
+                                            </h5>
+                                            <div class="itinerary-tab__text">
+                                                <p>
+                                                    Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                    Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                    famous skyline in the world.
+                                                </p><br>
+                                                <p>
+                                                    Your live English guide will point out the sites as you journey
+                                                    along the river including the Empire State Building, the new
+                                                    Freedom
+                                                    Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                    use
+                                                    of both the indoor and outdoor seating, along with large open
+                                                    windows for your viewing pleasure.
+                                                </p><br>
+                                                <p>
+                                                    Get within touching distance of "Lady Liberty" and then move on
+                                                    to
+                                                    Ellis Island to take photos of the famous entry point to New
+                                                    York
+                                                    City. Marvel at the skyline of Manhattan and its famous
+                                                    skyscrapers,
+                                                    including the new One World Trade Center.
+                                                </p><br>
+                                                <p>
+                                                    Glide down both the east and west sides of Lower Manhattan on
+                                                    this
+                                                    roundtrip cruise, and purchase drinks and food from the
+                                                    concession
+                                                    stand aboard the boat.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="second-day" role="tabpanel">
+                                        <div class="itinerary-tab">
+                                            <h5 class="itinerary-tab__title">
+                                                Second day
+                                            </h5>
+                                            <div class="itinerary-tab__text">
+                                                <p>
+                                                    Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                    Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                    famous skyline in the world.
+                                                </p><br>
+                                                <p>
+                                                    Your live English guide will point out the sites as you journey
+                                                    along the river including the Empire State Building, the new
+                                                    Freedom
+                                                    Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                    use
+                                                    of both the indoor and outdoor seating, along with large open
+                                                    windows for your viewing pleasure.
+                                                </p><br>
+                                                <p>
+                                                    Get within touching distance of "Lady Liberty" and then move on
+                                                    to
+                                                    Ellis Island to take photos of the famous entry point to New
+                                                    York
+                                                    City. Marvel at the skyline of Manhattan and its famous
+                                                    skyscrapers,
+                                                    including the new One World Trade Center.
+                                                </p><br>
+                                                <p>
+                                                    Glide down both the east and west sides of Lower Manhattan on
+                                                    this
+                                                    roundtrip cruise, and purchase drinks and food from the
+                                                    concession
+                                                    stand aboard the boat.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="third-day" role="tabpanel">
+                                        <div class="itinerary-tab">
+                                            <h5 class="itinerary-tab__title">
+                                                Third day
+                                            </h5>
+                                            <div class="itinerary-tab__text">
+                                                <p>
+                                                    Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                    Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                    famous skyline in the world.
+                                                </p><br>
+                                                <p>
+                                                    Your live English guide will point out the sites as you journey
+                                                    along the river including the Empire State Building, the new
+                                                    Freedom
+                                                    Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                    use
+                                                    of both the indoor and outdoor seating, along with large open
+                                                    windows for your viewing pleasure.
+                                                </p><br>
+                                                <p>
+                                                    Get within touching distance of "Lady Liberty" and then move on
+                                                    to
+                                                    Ellis Island to take photos of the famous entry point to New
+                                                    York
+                                                    City. Marvel at the skyline of Manhattan and its famous
+                                                    skyscrapers,
+                                                    including the new One World Trade Center.
+                                                </p><br>
+                                                <p>
+                                                    Glide down both the east and west sides of Lower Manhattan on
+                                                    this
+                                                    roundtrip cruise, and purchase drinks and food from the
+                                                    concession
+                                                    stand aboard the boat.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="fourth-day" role="tabpanel">
+                                        <div class="itinerary-tab">
+                                            <h5 class="itinerary-tab__title">
+                                                Fourth day
+                                            </h5>
+                                            <div class="itinerary-tab__text">
+                                                <p>
+                                                    Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                    Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                    famous skyline in the world.
+                                                </p><br>
+                                                <p>
+                                                    Your live English guide will point out the sites as you journey
+                                                    along the river including the Empire State Building, the new
+                                                    Freedom
+                                                    Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                    use
+                                                    of both the indoor and outdoor seating, along with large open
+                                                    windows for your viewing pleasure.
+                                                </p><br>
+                                                <p>
+                                                    Get within touching distance of "Lady Liberty" and then move on
+                                                    to
+                                                    Ellis Island to take photos of the famous entry point to New
+                                                    York
+                                                    City. Marvel at the skyline of Manhattan and its famous
+                                                    skyscrapers,
+                                                    including the new One World Trade Center.
+                                                </p><br>
+                                                <p>
+                                                    Glide down both the east and west sides of Lower Manhattan on
+                                                    this
+                                                    roundtrip cruise, and purchase drinks and food from the
+                                                    concession
+                                                    stand aboard the boat.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion d-lg-none">
+                            <div class="accordion-item">
+                                <button class="option-nav-item" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#acc-first" aria-expanded="true" aria-controls="acc-first">
+                                    <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                            fill="" />
+                                        <path
+                                            d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                            fill="" />
+                                    </svg>
+
+                                    <div class="d-flex flex-column align-items-start pe-4">
+                                        <h5 class="option-nav-item__title">First day</h5>
+                                        <p class="option-nav-item__text">
+                                            Arriving in Azerbaijan and travel to Guba
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+
+                                <div id="acc-first" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        <div class="itinerary-tab__text">
+                                            <p>
+                                                Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                famous skyline in the world.
+                                            </p><br>
+                                            <p>
+                                                Your live English guide will point out the sites as you journey
+                                                along the river including the Empire State Building, the new
+                                                Freedom
+                                                Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                use
+                                                of both the indoor and outdoor seating, along with large open
+                                                windows for your viewing pleasure.
+                                            </p><br>
+                                            <p>
+                                                Get within touching distance of "Lady Liberty" and then move on
+                                                to
+                                                Ellis Island to take photos of the famous entry point to New
+                                                York
+                                                City. Marvel at the skyline of Manhattan and its famous
+                                                skyscrapers,
+                                                including the new One World Trade Center.
+                                            </p><br>
+                                            <p>
+                                                Glide down both the east and west sides of Lower Manhattan on
+                                                this
+                                                roundtrip cruise, and purchase drinks and food from the
+                                                concession
+                                                stand aboard the boat.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="option-nav-item collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#acc-second" aria-expanded="false" aria-controls="acc-second">
+                                    <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                            fill="" />
+                                        <path
+                                            d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                            fill="" />
+                                    </svg>
+                                    <div class="d-flex flex-column align-items-start pe-4">
+                                        <h5 class="option-nav-item__title">Second day</h5>
+                                        <p class="option-nav-item__text">
+                                            Arriving in Azerbaijan and travel to Guba
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+                                <div id="acc-second" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="itinerary-tab__text">
+                                            <p>
+                                                Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                famous skyline in the world.
+                                            </p><br>
+                                            <p>
+                                                Your live English guide will point out the sites as you journey
+                                                along the river including the Empire State Building, the new
+                                                Freedom
+                                                Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                use
+                                                of both the indoor and outdoor seating, along with large open
+                                                windows for your viewing pleasure.
+                                            </p><br>
+                                            <p>
+                                                Get within touching distance of "Lady Liberty" and then move on
+                                                to
+                                                Ellis Island to take photos of the famous entry point to New
+                                                York
+                                                City. Marvel at the skyline of Manhattan and its famous
+                                                skyscrapers,
+                                                including the new One World Trade Center.
+                                            </p><br>
+                                            <p>
+                                                Glide down both the east and west sides of Lower Manhattan on
+                                                this
+                                                roundtrip cruise, and purchase drinks and food from the
+                                                concession
+                                                stand aboard the boat.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="option-nav-item collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#acc-third" aria-expanded="false" aria-controls="acc-third">
+                                    <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                            fill="" />
+                                        <path
+                                            d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                            fill="" />
+                                    </svg>
+                                    <div class="d-flex flex-column align-items-start pe-4">
+                                        <h5 class="option-nav-item__title">Third Day</h5>
+                                        <p class="option-nav-item__text">
+                                            Arriving in Azerbaijan and travel to Guba
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+                                <div id="acc-third" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="itinerary-tab__text">
+                                            <p>
+                                                Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                famous skyline in the world.
+                                            </p><br>
+                                            <p>
+                                                Your live English guide will point out the sites as you journey
+                                                along the river including the Empire State Building, the new
+                                                Freedom
+                                                Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                use
+                                                of both the indoor and outdoor seating, along with large open
+                                                windows for your viewing pleasure.
+                                            </p><br>
+                                            <p>
+                                                Get within touching distance of "Lady Liberty" and then move on
+                                                to
+                                                Ellis Island to take photos of the famous entry point to New
+                                                York
+                                                City. Marvel at the skyline of Manhattan and its famous
+                                                skyscrapers,
+                                                including the new One World Trade Center.
+                                            </p><br>
+                                            <p>
+                                                Glide down both the east and west sides of Lower Manhattan on
+                                                this
+                                                roundtrip cruise, and purchase drinks and food from the
+                                                concession
+                                                stand aboard the boat.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="option-nav-item collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#acc-fourth" aria-expanded="false" aria-controls="acc-fourth">
+                                    <svg width="32" height="33" class="location" viewBox="0 0 32 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16 18.5C15.0111 18.5 14.0444 18.2068 13.2222 17.6574C12.3999 17.1079 11.759 16.3271 11.3806 15.4134C11.0022 14.4998 10.9031 13.4945 11.0961 12.5246C11.289 11.5546 11.7652 10.6637 12.4645 9.96447C13.1637 9.26521 14.0546 8.789 15.0246 8.59608C15.9945 8.40315 16.9998 8.50217 17.9134 8.8806C18.8271 9.25904 19.6079 9.89991 20.1574 10.7222C20.7068 11.5444 21 12.5111 21 13.5C20.9984 14.8256 20.4711 16.0964 19.5338 17.0338C18.5964 17.9711 17.3256 18.4984 16 18.5ZM16 10.5C15.4067 10.5 14.8266 10.6759 14.3333 11.0056C13.8399 11.3352 13.4554 11.8038 13.2284 12.352C13.0013 12.9001 12.9419 13.5033 13.0576 14.0853C13.1734 14.6672 13.4591 15.2018 13.8787 15.6213C14.2982 16.0409 14.8328 16.3266 15.4147 16.4424C15.9967 16.5581 16.5999 16.4987 17.1481 16.2716C17.6962 16.0446 18.1648 15.6601 18.4944 15.1667C18.8241 14.6734 19 14.0933 19 13.5C18.9992 12.7046 18.6829 11.942 18.1204 11.3796C17.558 10.8171 16.7954 10.5008 16 10.5Z"
+                                            fill="" />
+                                        <path
+                                            d="M16 30.5L7.56401 20.551C7.44679 20.4016 7.33079 20.2513 7.21601 20.1C5.77499 18.2018 4.99652 15.8832 5.00001 13.5C5.00001 10.5826 6.15894 7.78473 8.22184 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27.0035 15.8821 26.2254 18.1996 24.785 20.097L24.784 20.1C24.784 20.1 24.484 20.494 24.439 20.547L16 30.5ZM8.81201 18.895C8.81401 18.895 9.04601 19.203 9.09901 19.269L16 27.408L22.91 19.258C22.954 19.203 23.188 18.893 23.189 18.892C24.3662 17.3411 25.0023 15.447 25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.387 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63605 7.13604C7.94822 8.82387 7.00001 11.1131 7.00001 13.5C6.99791 15.4482 7.63479 17.3434 8.81301 18.895H8.81201Z"
+                                            fill="" />
+                                    </svg>
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h5 class="option-nav-item__title">Fourth day</h5>
+                                        <p class="option-nav-item__text">
+                                            Arriving in Azerbaijan and travel to Guba
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+                                <div id="acc-fourth" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="accordion-body">
+                                            <div class="itinerary-tab__text">
+                                                <p>
+                                                    Take a 60-minute boat ride to within 100 feet of the Statue of
+                                                    Liberty. Cruise right under the Brooklyn Bridge and see the most
+                                                    famous skyline in the world.
+                                                </p><br>
+                                                <p>
+                                                    Your live English guide will point out the sites as you journey
+                                                    along the river including the Empire State Building, the new
+                                                    Freedom
+                                                    Tower, the Manhattan Bridge, Governor's Island, and more. Make
+                                                    use
+                                                    of both the indoor and outdoor seating, along with large open
+                                                    windows for your viewing pleasure.
+                                                </p><br>
+                                                <p>
+                                                    Get within touching distance of "Lady Liberty" and then move on
+                                                    to
+                                                    Ellis Island to take photos of the famous entry point to New
+                                                    York
+                                                    City. Marvel at the skyline of Manhattan and its famous
+                                                    skyscrapers,
+                                                    including the new One World Trade Center.
+                                                </p><br>
+                                                <p>
+                                                    Glide down both the east and west sides of Lower Manhattan on
+                                                    this
+                                                    roundtrip cruise, and purchase drinks and food from the
+                                                    concession
+                                                    stand aboard the boat.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="hotel-options" role="tabpanel">
+                        <div class="row gy-3 d-none d-lg-flex">
+                            <div class="col-lg-6">
+                                <div class="nav option-nav" role="tablist">
+                                    <button class="option-nav-item active" data-bs-toggle="tab"
+                                        data-bs-target="#option-1" type="button" role="tab" aria-selected="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                            <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">Option #1</h5>
+                                            <p class="option-nav-item__price">
+                                                Price <span>$128</span>
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                    <button class="option-nav-item" data-bs-toggle="tab" data-bs-target="#option-2"
+                                        type="button" role="tab" aria-selected="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                            <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">Option #2</h5>
+                                            <p class="option-nav-item__price">
+                                                Price <span>$328</span>
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                    <button class="option-nav-item" data-bs-toggle="tab" data-bs-target="#option-3"
+                                        type="button" role="tab" aria-selected="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                            <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">Option #3</h5>
+                                            <p class="option-nav-item__price">
+                                                Price <span>$528</span>
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                    <button class="option-nav-item" data-bs-toggle="tab" data-bs-target="#option-4"
+                                        type="button" role="tab" aria-selected="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                            <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h5 class="option-nav-item__title">Option #4</h5>
+                                            <p class="option-nav-item__price">
+                                                Price <span>$558</span>
+                                            </p>
+                                        </div>
+                                        <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon"
+                                            alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="option-1" role="tabpanel">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="option-2" role="tabpanel">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="option-3" role="tabpanel">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="option-4" role="tabpanel">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion hotel-option-acc d-lg-none">
+                            <div class="accordion-item">
+                                <button class="option-nav-item" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#option-acc-1" aria-expanded="true" aria-controls="option-acc-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
+                                        fill="none">
+                                        <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                        <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h5 class="option-nav-item__title">Option #1</h5>
+                                        <p class="option-nav-item__price">
+                                            Price <span>$128</span>
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+
+                                <div id="option-acc-1" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="option-nav-item collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#option-acc-2" aria-expanded="false" aria-controls="option-acc-2">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
+                                        fill="none">
+                                        <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                        <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h5 class="option-nav-item__title">Option #2</h5>
+                                        <p class="option-nav-item__price">
+                                            Price <span>$328</span>
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+                                <div id="option-acc-2" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="option-nav-item collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#option-acc-3" aria-expanded="false" aria-controls="option-acc-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
+                                        fill="none">
+                                        <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                        <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h5 class="option-nav-item__title">Option #3</h5>
+                                        <p class="option-nav-item__price">
+                                            Price <span>$528</span>
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+                                <div id="option-acc-3" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="option-nav-item collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#option-acc-4" aria-expanded="false" aria-controls="option-acc-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
+                                        fill="none">
+                                        <rect y="0.5" width="20" height="20" rx="10" fill="" />
+                                        <path d="M5.91602 11.0833L8.24935 13.4166L14.0827 7.58331" stroke="white"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h5 class="option-nav-item__title">Option #4</h5>
+                                        <p class="option-nav-item__price">
+                                            Price <span>$558</span>
+                                        </p>
+                                    </div>
+                                    <img src="./static/assets/svg/Vector (14).svg" class="option-nav-item__icon" alt="">
+                                </button>
+                                <div id="option-acc-4" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="option-tab">
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Sea Pearl Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Baku, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">White Boutique Hotel</h5>
+                                                    <p class="option-tab__text">
+                                                        Gabala, Azerbaijan
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="option-tab__item">
+                                                <div class="option-tab__content">
+                                                    <h5 class="option-tab__title">Guba, Azerbaijan</h5>
+                                                    <p class="option-tab__text">
+                                                        Guba Hotel
+                                                    </p>
+                                                </div>
+                                                <div class="option-tab__rating">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-empty.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                    <img src="./static/assets/svg/star-fill.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="cancellation-policy" role="tabpanel">
+                        <div class="tour-detail-tab__content">
+                            <p>Take a 60-minute boat ride to within 100 feet of the Statue of Liberty. Cruise right
+                                under the
+                                Brooklyn Bridge and see the most famous skyline in the world.
+                            </p>
+                            <br>
+                            <p> Your live English guide will point out the sites as you journey along the river
+                                including the
+                                Empire State Building, the new Freedom Tower, the Manhattan Bridge, Governor's Island,
+                                and more.
+                                Make use of both the indoor and outdoor seating, along with large open windows for your
+                                viewing
+                                pleasure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-gap">
+            <div class="g-container">
+                <h2 class="section-title">
+                    You may also like
+                </h2>
+
+                <div class="best-travel section-gap position-relative">
+                    <div class="swiper best-travel-slide">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="" class="tour-card">
+                                    <div class="tour-card__img">
+                                        <img src="./static/assets/img/img (5).png" alt="">
+                                    </div>
+                                    <div class="tour-card__body">
+                                        <h4 class="tour-card__title">
+                                            Guba Tour
+                                        </h4>
+                                        <div class="tour-duration">
+                                            <img src="./static/assets/svg/iconoir_clock-outline.svg" alt="">
+                                            Duration: 5 days | 4 nights
+                                        </div>
+                                        <div class="tour-card__footer">
+                                            <div class="rating">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <span>5.0</span>
+                                            </div>
+                                            <p class="tour-price">from <span>$324</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="" class="tour-card">
+                                    <div class="tour-card__img">
+                                        <img src="./static/assets/img/img (5).png" alt="">
+                                    </div>
+                                    <div class="tour-card__body">
+                                        <h4 class="tour-card__title">
+                                            Guba Tour
+                                        </h4>
+                                        <div class="tour-duration">
+                                            <img src="./static/assets/svg/iconoir_clock-outline.svg" alt="">
+                                            Duration: 5 days | 4 nights
+                                        </div>
+                                        <div class="tour-card__footer">
+                                            <div class="rating">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <span>5.0</span>
+                                            </div>
+                                            <p class="tour-price">from <span>$324</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="" class="tour-card">
+                                    <div class="tour-card__img">
+                                        <img src="./static/assets/img/img (5).png" alt="">
+                                    </div>
+                                    <div class="tour-card__body">
+                                        <h4 class="tour-card__title">
+                                            Guba Tour
+                                        </h4>
+                                        <div class="tour-duration">
+                                            <img src="./static/assets/svg/iconoir_clock-outline.svg" alt="">
+                                            Duration: 5 days | 4 nights
+                                        </div>
+                                        <div class="tour-card__footer">
+                                            <div class="rating">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <span>5.0</span>
+                                            </div>
+                                            <p class="tour-price">from <span>$324</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="" class="tour-card">
+                                    <div class="tour-card__img">
+                                        <img src="./static/assets/img/img (5).png" alt="">
+                                    </div>
+                                    <div class="tour-card__body">
+                                        <h4 class="tour-card__title">
+                                            Guba Tour
+                                        </h4>
+                                        <div class="tour-duration">
+                                            <img src="./static/assets/svg/iconoir_clock-outline.svg" alt="">
+                                            Duration: 5 days | 4 nights
+                                        </div>
+                                        <div class="tour-card__footer">
+                                            <div class="rating">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                                <span>5.0</span>
+                                            </div>
+                                            <p class="tour-price">from <span>$324</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next">
+                        <img src="./static/assets/svg/Vector (5).svg" alt="">
+                    </div>
+                    <div class="swiper-button-prev">
+                        <img src="./static/assets/svg/Vector (6).svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-gap mt-md-0 bg-gray pb-0">
+            <div class="g-container">
+                <h2 class="section-title">
+                    Customer reviews
+                </h2>
+
+                <p class="section-subtitle">
+                    Our customers use visa services mostly for these countries
+                </p>
+
+                <div class="clients-comments position-relative mb-3 mb-md-0">
+                    <div class="swiper clients-comments__slide">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="clients-comments__box">
+                                    <p class="clients-comments__name">
+                                        Narmina - United Arab Emirates
+                                    </p>
+                                    <span class="clients-comments__service">
+                                        Verified booking
+                                    </span>
+                                    <p class="clients-comments__text">
+                                        Alison Travel is a leading travel agency, specializing in group and individual
+                                        Inbound
+                                        tours in Azerbaijan and Georgia.
+                                    </p>
+                                    <div class="clients-comments__footer">
+                                        <div class="clients-comments__rating">
+                                            <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                            5.0
+                                        </div>
+                                        <div class="date">
+                                            July 20, 2021
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="clients-comments__box">
+                                    <p class="clients-comments__name">
+                                        Katia - Georgia
+                                    </p>
+                                    <span class="clients-comments__service">
+                                        Verified booking
+                                    </span>
+                                    <p class="clients-comments__text">
+                                        Alison Travel is a leading travel agency, specializing in group and individual
+                                        Inbound
+                                        tours in Azerbaijan and Georgia.
+                                    </p>
+                                    <div class="clients-comments__footer">
+                                        <div class="clients-comments__rating">
+                                            <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                            5.0
+                                        </div>
+                                        <div class="date">
+                                            July 20, 2021
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="clients-comments__box">
+                                    <p class="clients-comments__name">
+                                        Aydin - Turkey
+                                    </p>
+                                    <span class="clients-comments__service">
+                                        Verified booking
+                                    </span>
+                                    <p class="clients-comments__text">
+                                        Alison Travel is a leading travel agency, specializing in group and individual
+                                        Inbound
+                                        tours in Azerbaijan and Georgia.
+                                    </p>
+                                    <div class="clients-comments__footer">
+                                        <div class="clients-comments__rating">
+                                            <img src="./static/assets/svg/Vector (8).svg" alt="">
+                                            5.0
+                                        </div>
+                                        <div class="date">
+                                            July 20, 2021
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next">
+                        <img src="./static/assets/svg/Vector (5).svg" alt="">
+                    </div>
+                    <div class="swiper-button-prev">
+                        <img src="./static/assets/svg/Vector (6).svg" alt="">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center pb-md-5 pb-4">
+                    <div class="col-xl-2 col-md-3 col-sm-4">
+                        <button type="button" class="g-btn" data-bs-toggle="modal" data-bs-target="#reviewModal">
+                            Write review
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="g-container">
+            <div class="footer__wrapper">
+                <a href="./home.html" class="footer__logo">
+                    <img src="./static/assets/svg/logo (2).svg" alt="">
+                </a>
+
+                <ul class="footer__list">
+                    <h4 class="footer__title">Useful Links</h4>
+                    <li class="footer__item">
+                        <a href="./home.html" class="footer__link">
+                            Homepage
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="./contact.html" class="footer__link">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="./sign-up.html" class="footer__link">
+                            B2B packages
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">
+                            Cancellation policy
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="footer__list">
+                    <h4 class="footer__title">Information</h4>
+                    <li class="footer__item">
+                        <a href="./about-us.html" class="footer__link">
+                            About us
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="./our-guests.html" class="footer__link">
+                            Our guests
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="./news.html" class="footer__link">
+                            Travel news
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="footer__list">
+                    <h4 class="footer__title">Contact us</h4>
+                    <li class="footer__item">
+                        <a href="tel:+994 50 494 94 99" class="footer__link">
+                            <img src="./static/assets/svg/Vector (7).svg" alt="">
+                            +994 50 494 94 99
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="tel:+994 70 494 94 99" class="footer__link">
+                            <img src="./static/assets/svg/Vector (7).svg" alt="">
+                            +994 70 494 94 99
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="tel:+994 50 202 33 15" class="footer__link">
+                            <img src="./static/assets/svg/Vector (7).svg" alt="">
+                            +994 50 202 33 15
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="mailto:booking@alisontravelgroup.com" class="footer__link">
+                            <img src="./static/assets/svg/Group.svg" alt="">
+                            booking@alisontravelgroup.com
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="footer__socical-icons">
+                    <h4 class="footer__title">Follow us</h4>
+                    <li>
+                        <a href="">
+                            <img src="./static/assets/svg/Vector (1).svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./static/assets/svg/cib_youtube.svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./static/assets/svg/Vector (2).svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="footer__payment">
+                    <h4 class="footer__title">Payment methods</h4>
+                    <li>
+                        <img src="./static/assets/svg/Vector (3).svg" alt="">
+                    </li>
+                    <li>
+                        <img src="./static/assets/svg/Vector (4).svg" alt="">
+                    </li>
+                </ul>
+            </div>
+
+            <p class="footer__copyright">
+                Alison Travel 2021. All Rights Reserved | Developed by <span>Trustme Digital</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="./static/js/min/jquery.min.js"></script>
+    <script src="./static/js/min/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./static/js/min/select2.min.js"></script>
+    <script src="./static/js/main.js"></script>
+
+    <!-- ADDITIONAL -->
+    <script src="./static/js/prefix.js"></script>
+    <script src="./static/js/tour-apply-form.js"></script>
+    <script src="./static/js/write-review-form.js"></script>
+    <script src="./static/js/show-more.js"></script>
+    <script src="./static/js/slide/tour-detail-slide.js"></script>
+    <script src="./static/js/slide/best-travel-slide.js"></script>
+    <script src="./static/js/slide/clients-comments-slide.js"></script>
+</body>
+
+</html>

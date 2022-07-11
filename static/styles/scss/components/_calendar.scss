@@ -1,0 +1,32 @@
+.asd__action-buttons {
+    margin-bottom: 0;
+    button:first-child {
+        top: 10px;
+        color: $gray2;
+        font-weight: 600;
+    }
+
+    button:last-child {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 8px 11px;
+        text-decoration: none !important;
+        color: white !important;
+        border-radius: 4px;
+        background-color: $main-color;
+    }
+}
+
+.asd__keyboard-shortcuts-trigger {
+    display: none;
+}
+
+.asd__day--in-range,
+.asd__day--selected{
+    background-color: $main-color !important;
+    border-color: white !important;
+}
+
+.asd__day--enabled:focus {
+    outline: none !important;
+}

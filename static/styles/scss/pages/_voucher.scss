@@ -1,0 +1,143 @@
+.voucher {
+    margin-top: rem(36);
+    margin-bottom: rem(60);
+
+    &__title {
+        color: $purple;
+        margin-bottom: rem(24);
+        text-transform: uppercase;
+        @include font(28, 600, 33);
+    }
+
+    &__container {
+        display: flex;
+        gap: rem(30);
+        padding: 0 rem(24);
+        margin-bottom: rem(24);
+
+        &:nth-child(even) {
+            background: #FAFAFA;
+            padding: rem(24);
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        &__title {
+            width: rem(70);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            margin-top: rem(6);
+
+            span {
+                font-weight: 400;
+            }
+
+            font-weight: 500;
+        }
+    }
+
+    &__content {
+        padding-left: rem(100);
+    }
+
+    .row {
+        --bs-gutter-y: 1rem;
+    }
+
+    .program-list {
+        display: flex;
+        flex-direction: column;
+        gap: rem(12);
+
+        &__item {
+            padding: rem(10);
+            padding-left: rem(114);
+            display: flex;
+            line-height: rem(23);
+            gap: rem(28);
+
+            &:nth-child(odd) {
+                background-color: #FAFAFA;
+            }
+
+            span {
+                width: rem(90);
+                flex-shrink: 0
+            }
+        }
+    }
+
+    .info-text {
+        margin-top: rem(50);
+
+        p {
+            @include font(14, 400, 20);
+        }
+    }
+
+    .download-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F2F2F2;
+        font-weight: 600;
+        margin-left: auto;
+        margin-top: rem(26);
+        width: rem(165);
+        height: rem(48);
+        gap: rem(12);
+
+        img {
+            transform: translateY(rem(-2));
+        }
+
+        &:hover {
+            background-color: #ece8e8;
+
+        }
+    }
+
+    @include breakpoint-max($desktop-width) {
+        &__container {
+            flex-direction: column;
+        }
+
+        &__content {
+            padding-left: 0;
+        }
+
+        .program-list {
+            &__item {
+                padding-left: rem(16);
+            }
+        }
+    }
+
+    @include breakpoint-max($tablet-width) {
+        margin-top: rem(10);
+        margin-bottom: rem(40);
+
+        &__container {
+            padding: rem(24) rem(16);
+        }
+
+        .program-list {
+            &__item {
+                flex-direction: column;
+                gap: rem(4);
+                font-size: rem(14);
+
+                span {
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .info-text {
+            margin-top: rem(20);
+        }
+    }
+}

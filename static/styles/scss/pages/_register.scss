@@ -1,0 +1,32 @@
+.register {
+    background-color: $secondary-color;
+    padding-top: rem(100);
+    padding-bottom: rem(150);
+    height: 100vh;
+
+    @include breakpoint-max($desktop-sm-width) {
+        padding-top: rem(80);
+        padding-bottom: rem(80);
+    }
+
+    @include breakpoint-max($tablet-width) {
+        padding-top: rem(50);
+        padding-bottom: rem(50);
+    }
+
+    &__helper-text {
+        a {
+            text-decoration: underline !important;
+            color: $dark;
+            display: inline-block;
+
+            &.bold {
+                font-weight: 600;
+            }
+        }
+
+        @include breakpoint-max($mobile-width) {
+            font-size: rem(15);
+        }
+    }
+}

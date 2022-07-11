@@ -1,0 +1,204 @@
+.g-input {
+    background: white;
+    border: 1px solid $gray;
+    border-radius: rem(4);
+    height: rem(41);
+    padding: 0 rem(10);
+    font-size: rem(14);
+    color: $dark;
+    width: 100%;
+
+    &::placeholder {
+        color: $gray;
+        font-size: rem(14);
+    }
+}
+
+.g-input-wrapper {
+    position: relative;
+
+    .g-input {
+        padding-left: rem(40);
+    }
+
+    img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: rem(10);
+        z-index: 1;
+        pointer-events: none;
+    }
+}
+
+textarea {
+    height: auto !important;
+    padding-top: rem(15) !important;
+}
+
+.g-select-wrapper {
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: rem(10);
+        width: rem(9);
+    }
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: rem(25);
+    cursor: pointer;
+    @include font(15, 400, 20);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: rem(16);
+        width: rem(16);
+        background-color: transparent;
+        border: 1px solid $gray;
+        border-radius: 3px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: rem(4.5);
+            top: 0;
+            width: rem(5);
+            height: rem(10);
+            border: solid white;
+            border-width: 0 rem(2.5) rem(2.5) 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    input:checked~.checkmark {
+        background-color: $main-color;
+        border-color: $main-color;
+    }
+
+    input:checked~.checkmark:after {
+        display: block;
+    }
+}
+
+.select2 {
+    &-selection {
+        border-radius: rem(4) !important;
+        background-color: white !important;
+        border: 1px solid $gray  !important;
+        padding: rem(9) rem(8) !important;
+        height: rem(40) !important;
+        display: flex !important;
+        align-items: center;
+    }
+
+    &-selection__rendered {
+        line-height: initial !important;
+        color: $dark  !important;
+        font-size: rem(14) !important;
+        padding: 0 !important;
+    }
+
+    &-selection__placeholder {
+        color: $gray  !important;
+    }
+
+    &-selection__arrow {
+        display: none !important;
+    }
+}
+
+.select2-container {
+    .select2-dropdown {
+        border-color: $gray  !important;
+    }
+
+    .select2-search {
+        display: none !important;
+
+        .select2-search__field {
+            margin: 0 !important;
+        }
+    }
+
+    .select2-results__options::-webkit-scrollbar {
+        margin: 0;
+        background: #f4f3f2;
+        width: rem(4);
+        height: rem(20);
+    }
+
+    .select2-results__options::-webkit-scrollbar-thumb {
+        background: $gray;
+    }
+
+    .select2-results__option {
+        font-size: rem(13);
+        color: $dark;
+        padding: rem(10);
+    }
+
+    .select2-selection__placeholder {}
+
+    .select2-results__option--highlighted {
+        &.select2-results__option--selectable {
+            background-color: $main-color;
+            color: white;
+        }
+    }
+
+    .select2-selection--multiple {
+        .select2-search {
+            display: inline !important;
+        }
+
+        .select2-selection__rendered {
+            line-height: 13px !important;
+        }
+
+        .select2-selection__choice {
+            background: rgba(46, 26, 115, 0.1);
+            border-radius: rem(3);
+            margin-top: 0;
+            border: none;
+            padding-left: rem(13);
+            padding-top: rem(5);
+            padding-bottom: rem(5);
+
+            &__remove {
+                height: 100%;
+            }
+
+            &__display {
+                color: $main-color;
+                padding: 0px rem(7);
+            }
+        }
+
+        .select2-search__field {
+            padding-left: rem(5);
+        }
+    }
+}

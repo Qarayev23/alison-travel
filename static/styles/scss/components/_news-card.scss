@@ -1,0 +1,102 @@
+.news {
+    &-card {
+        height: rem(372);
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint-max($tablet-width) {
+            height: rem(362);
+        }
+
+        &__img {
+            height: rem(130);
+            border-radius: 4px 4px 0px 0px;
+            overflow: hidden;
+            display: block;
+            flex: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 4px 4px 0px 0px;
+                transition: 0.3s;
+
+                &:hover {
+                    @include breakpoint-min($mobile-width) {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        &__body {
+            display: flex;
+            flex-direction: column;
+            gap: rem(25);
+            padding: rem(35) rem(30);
+            box-shadow: 0px 30px 23px -28px #0000000D;
+            background-color: white;
+            flex-grow: 1;
+
+            @include breakpoint-max($tablet-width) {
+                padding: rem(30) rem(20);
+            }
+        }
+
+        &__title {
+            @include font(18, 600, 21);
+            color: $dark;
+            height: rem(42);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            transition: 0.3s;
+
+            &:hover {
+                color: $main-color;
+            }
+        }
+
+        &__text {
+            color: $dark;
+            @include font(14, 400, 20);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+
+            @include breakpoint-max($tablet-width) {
+                font-size: rem(13);
+            }
+        }
+
+        &__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__more {
+            @include font(14, 500, 13);
+            color: $main-color  !important;
+            display: block;
+            border-bottom: 1px solid $main-color;
+        }
+
+        &__slide {
+            padding-bottom: rem(50);
+
+            @include breakpoint-max($tablet-width){
+                padding-bottom: rem(70);
+            }
+        }
+    }
+}
+
+.news-page {
+    .news-card__body {
+        box-shadow: 2px 2px 30px 0px #0000001A;
+    }
+}

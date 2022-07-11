@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./static/styles/css/min/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/styles/css/min/select2.min.css">
+    <!-- ADDITIONAL START -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://unpkg.com/vue-airbnb-style-datepicker@2.1.0/dist/vue-airbnb-style-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- ADDITIONAL END -->
+    <link rel="stylesheet" href="./static/styles/css/main.min.css">
+    <title>ALISON TRAVEL</title>
+</head>
+
+<body>
+    <section class="dashboard">
+        <div class="dashboard__wrapper">
+            <div class="sidebar">
+                <div class="sidebar__wrapper">
+                    <a href="" class="dashboard__logo">
+                        <img src="./static/assets/svg/dashboard-logo.svg" alt="">
+                    </a>
+
+                    <button class="sidebar-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <a href="./profile.html" class="profile-avatar d-sm-none">
+                        <img src="./static/assets/svg/Ellipse 1.svg" alt="">
+                        <span>Cameron Williamson</span>
+                    </a>
+
+                    <div class="dashboard-nav">
+                        <button id="dashboard-nav__item-1" class="dashboard-nav__item" onclick="OpenTab(0)">
+                            <img src="./static/assets/svg/globe-05.svg" alt="">
+                            Destination
+                        </button>
+                        <button id="dashboard-nav__item-2" class="dashboard-nav__item" onclick="OpenTab(1)">
+                            <img src="./static/assets/svg/building-01.svg" alt="">
+                            Hotel
+                        </button>
+                        <button id="dashboard-nav__item-3" class="dashboard-nav__item" onclick="OpenTab(2)">
+                            <img src="./static/assets/svg/rocket-02.svg" alt="">
+                            Sightseeing
+                        </button>
+                        <button id="dashboard-nav__item-4" class="dashboard-nav__item" onclick="OpenTab(3)">
+                            <img src="./static/assets/svg/marker-pin-06.svg" alt="">
+                            Guide
+                        </button>
+
+                        <div class="line"></div>
+
+                        <button class="log-out">
+                            <img src="./static/assets/svg/log-out-01.svg" alt="">
+                            Sign out
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="main">
+                <div class="dashboard-header">
+                    <div class="d-flex gap-5">
+                        <button class="sidebar-open d-xl-none">
+                            <img src="./static/assets/svg/iconoir_menu (1).svg" alt="">
+                        </button>
+
+                        <div class="d-lg-flex flex-column d-none">
+                            <h1 class="dashboard-header__title">
+                                Build your perfect tour package
+                            </h1>
+                            <h3 class="dashboard-header__subtitle">
+                                Enter details to create your perfect tour package
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-header__right">
+                        <div class="dropdown d-lang-dropdown">
+                            <button class="dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="./static/assets/svg/Mask group.svg" alt="">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="langDropdown">
+                                <button class="dropdown-item" href="">
+                                    <img src="./static/assets/svg/Mask group.svg" alt="">
+                                </button>
+                                <button class="dropdown-item" href="">
+                                    <img src="./static/assets/svg/Mask group.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+
+                        <a href="./basket.html" class="basket-icon">
+                            <img src="./static/assets/svg/shopping-bag-03.svg" alt="">
+                            <span class="basket-count">3</span>
+                        </a>
+
+                        <a href="./profile.html" class="profile-avatar d-none d-sm-flex">
+                            <img src="./static/assets/svg/Ellipse 1.svg" alt="">
+                            <span>Cameron Williamson</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="brief-tab">
+                    <button class="brief-tab__btn" onclick="OpenTab(0)">
+                        <span class="brief-tab__step">1</span>
+                        <span class="brief-tab__name">Choose destination</span>
+                    </button>
+                    <button class="brief-tab__btn" onclick="OpenTab(1)">
+                        <span class="brief-tab__step">2</span>
+                        <span class="brief-tab__name">Choose hotels</span>
+                    </button>
+                    <button class="brief-tab__btn" onclick="OpenTab(2)">
+                        <span class="brief-tab__step">3</span>
+                        <span class="brief-tab__name">Sitesing</span>
+                    </button>
+                    <button class="brief-tab__btn" onclick="OpenTab(3)">
+                        <span class="brief-tab__step">4</span>
+                        <span class="brief-tab__name">Confirm</span>
+                    </button>
+                </div>
+
+                <form action="">
+                    <div class="tabcontent">
+                        <div class="destination-top-row">
+                            <div class="destination-top-left">
+                                <div class="box">
+                                    <h4 class="dashboard-title mb-4">
+                                        Destination country
+                                    </h4>
+
+                                    <select name="" id="destination-country">
+                                        <option data-placeholder="true"></option>
+                                        <option value="Azerbaijan">Azerbaijan</option>
+                                        <option value="Turkey">Turkey</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="destination-top-right">
+                                <div class="box">
+                                    <h4 class="dashboard-title mb-4">
+                                        Guests
+                                    </h4>
+                                    <div class="guests-row">
+                                        <div class="guests-col">
+                                            <div class="guests">
+                                                <div class="guests-label">
+                                                    <p class="guests-title">Adults</p>
+                                                </div>
+                                                <button type="button" class="count-btn inc-btn">
+                                                    <img src="./static/assets/svg/plus.svg" alt="">
+                                                </button>
+                                                <input type="text" class="count-result" value="0" readonly>
+                                                <button type="button" class="count-btn dec-btn">
+                                                    <img src="./static/assets/svg/minus.svg" alt="">
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="guests-col">
+                                            <div class="guests">
+                                                <div class="guests-label">
+                                                    <p class="guests-title">Children</p>
+                                                    <p class="guests-subtitle">Ages 6-11.99</p>
+                                                </div>
+                                                <button type="button" class="count-btn inc-btn">
+                                                    <img src="./static/assets/svg/plus.svg" alt="">
+                                                </button>
+                                                <input type="text" class="count-result" value="0" readonly>
+                                                <button type="button" class="count-btn dec-btn">
+                                                    <img src="./static/assets/svg/minus.svg" alt="">
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="guests-col">
+                                            <div class="guests">
+                                                <div class="guests-label">
+                                                    <p class="guests-title">Kids</p>
+                                                    <p class="guests-subtitle">Ages 0-5.99</p>
+                                                </div>
+                                                <button type="button" class="count-btn inc-btn">
+                                                    <img src="./static/assets/svg/plus.svg" alt="">
+                                                </button>
+                                                <input type="text" class="count-result" value="0" readonly>
+                                                <button type="button" class="count-btn dec-btn">
+                                                    <img src="./static/assets/svg/minus.svg" alt="">
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="destination-bottom-row">
+                                <div class="select-box__wrapper destination-box__wrapper">
+                                    <div class="select-box">
+                                        <h4 class="dashboard-title">
+                                            Destination city
+                                        </h4>
+
+                                        <select name="" id="destination-city">
+                                            <option data-placeholder="true"></option>
+                                            <option value="Baku">Baku</option>
+                                        </select>
+
+                                        <h4 class="dashboard-title mt-4">
+                                            Arrival & Departure
+                                        </h4>
+
+                                        <div class="date-input-wrapper">
+                                            <img src="./static/assets/svg/calendar.svg" alt="">
+
+                                            <div id="app" class="h-100">
+                                                <div class="datepicker-trigger h-100">
+                                                    <input type="text" id="datepicker-input-trigger"
+                                                        :value="formatDates(inputDateOne, inputDateTwo)"
+                                                        placeholder="Date..." readonly>
+                                                    <airbnb-style-datepicker
+                                                        :trigger-element-id="&apos;datepicker-input-trigger&apos;"
+                                                        :mode="&apos;range&apos;" :date-one="inputDateOne"
+                                                        :date-two="inputDateTwo"
+                                                        v-on:date-one-selected="function(val) { inputDateOne = val }"
+                                                        v-on:date-two-selected="function(val) { inputDateTwo = val }">
+                                                    </airbnb-style-datepicker>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="add-field">
+                                    <button type="button">
+                                        <img src="./static/assets/svg/add.svg" alt="">
+                                        Add city or region
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="button" class="next-btn mt-4" onclick="OpenTab(1)">
+                                Continue
+                                <img src="./static/assets/svg/next.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tabcontent">
+                        <div class="hotel-top-row">
+                            <div class="hotel-top-row__left">
+                                <div class="box">
+                                    <div class="info-list__wrapper">
+                                        <div class="info-list">
+                                            <div class="info-item">
+                                                <span>Country: </span>Azerbaijan
+                                            </div>
+                                            <div class="info-item">
+                                                <span>From: </span> 12.06.22
+                                            </div>
+                                            <div class="info-item">
+                                                <span>To: </span> 18.06.22
+                                            </div>
+                                        </div>
+
+                                        <div class="info-list">
+                                            <div class="info-item">
+                                                <span>Adults: </span> 4
+                                            </div>
+                                            <div class="info-item">
+                                                <span>Childs: </span> 2
+                                            </div>
+                                            <div class="info-item">
+                                                <span>kids: </span> 2
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <span class="info-list__title">
+                                                Cities:
+                                            </span>
+
+                                            <div class="info-list">
+                                                <div class="info-item">
+                                                    Baku (12.06 / 13.06)
+                                                </div>
+                                                <div class="info-item">
+                                                    Gabala (14.06 / 16.06)
+                                                </div>
+                                                <div class="info-item">
+                                                    Ganja (16.06 / 18.06)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hotel-top-row__right">
+                                <div class="box">
+                                    <p class="subtotal mt-lg-3">
+                                        Subtotal:
+                                        <span>$960</span>
+                                    </p>
+
+                                    <p class="total">
+                                        Total:
+                                        <span>$1240</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hotel-bottom-row">
+                            <div class="box">
+                                <div class="select-box__wrapper">
+                                    <div class="select-box select-box--hotel">
+                                        <div class="select-box__header">
+                                            City 1:
+                                            Baku 12.06 / 13.06
+                                        </div>
+                                        <h4 class="dashboard-title">
+                                            Hotels
+                                        </h4>
+
+                                        <select name="" id="choose-hotel">
+                                            <option data-placeholder="true"></option>
+                                            <option value="Azerbaijan">Fairmont Baku</option>
+                                        </select>
+
+                                        <h4 class="dashboard-title mt-4">
+                                            Room type & placement
+                                        </h4>
+
+                                        <select name="" id="room-type">
+                                            <option data-placeholder="true"></option>
+                                            <option value="Azerbaijan">Standart</option>
+                                        </select>
+
+                                        <div class="room-type-container"></div>
+
+                                        <button type="button" class="add-room">
+                                            <img src="./static/assets/svg/add-room.svg" alt="">
+                                            Add room
+                                        </button>
+                                    </div>
+
+                                    <div class="select-box select-box--hotel">
+                                        <div class="select-box__header">
+                                            City 1:
+                                            Baku 12.06 / 13.06
+                                        </div>
+                                        <h4 class="dashboard-title">
+                                            Hotels
+                                        </h4>
+
+                                        <select name="" id="choose-hotel-2">
+                                            <option data-placeholder="true"></option>
+                                            <option value="Azerbaijan">Fairmont Baku</option>
+                                        </select>
+
+                                        <h4 class="dashboard-title mt-4">
+                                            Room type & placement
+                                        </h4>
+
+                                        <select name="" id="room-type-2">
+                                            <option data-placeholder="true"></option>
+                                            <option value="Azerbaijan">Standart</option>
+                                        </select>
+
+                                        <div class="room-type-container"></div>
+
+                                        <button type="button" class="add-room">
+                                            <img src="./static/assets/svg/add-room.svg" alt="">
+                                            Add room
+                                        </button>
+                                    </div>
+
+                                    <div class="select-box select-box--hotel">
+                                        <div class="select-box__header">
+                                            City 1:
+                                            Ganja 12.06 / 13.06
+                                        </div>
+
+                                        <h4 class="dashboard-title">
+                                            Hotels
+                                        </h4>
+
+                                        <select name="" id="choose-hotel-3">
+                                            <option data-placeholder="true"></option>
+                                            <option value="Azerbaijan">Fairmont Baku</option>
+                                        </select>
+
+                                        <h4 class="dashboard-title mt-4">
+                                            Room type & placement
+                                        </h4>
+
+                                        <select name="" id="room-type-3">
+                                            <option data-placeholder="true"></option>
+                                            <option value="Azerbaijan">Standart</option>
+                                        </select>
+                                        <div class="room-type-container"></div>
+
+                                        <button type="button" class="add-room">
+                                            <img src="./static/assets/svg/add-room.svg" alt="">
+                                            Add room
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-4 mt-5">
+                                    <button type="button" class="back-btn" onclick="OpenTab(0)">
+                                        <img src="./static/assets/svg/back-arrow.svg" alt="">
+                                        Back
+                                    </button>
+                                    <button type="button" class="next-btn" onclick="OpenTab(2)">
+                                        Continue
+                                        <img src="./static/assets/svg/next.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabcontent">
+                        <div class="transportation">
+                            <div class="transportation__left">
+                                <div class="transportation__container">
+                                    <h2 class="content-title mb-4">
+                                        Choose your transportation service
+                                    </h2>
+
+                                    <div class="transportation-box">
+                                        <div class="transportation-box__header">
+                                            <h5 class="dashboard-title mb-0">
+                                                Days
+                                            </h5>
+                                            <h5 class="dashboard-title mb-0">
+                                                Selected service
+                                            </h5>
+                                        </div>
+
+                                        <div class="transportation-box__list">
+                                            <div class="transportation-box__item">
+                                                <span class="transportation-box__desc">
+                                                    Day 1 - 13.06.22
+                                                </span>
+
+                                                <select name="" multiple id="select-service">
+                                                    <option value="Azerbaijan">Baku airport - Baku Hotel</option>
+                                                    <option value="Turkey">Round Baku - Lankaran</option>
+                                                    <option value="Georgia">Round Baku - Gabala</option>
+                                                </select>
+                                            </div>
+                                            <div class="transportation-box__item">
+                                                <span class="transportation-box__desc">
+                                                    Day 1 - 13.06.22
+                                                </span>
+
+                                                <select name="" multiple id="select-service-2">
+                                                    <option value="Azerbaijan">Baku airport - Baku Hotel</option>
+                                                    <option value="Turkey">Round Baku - Lankaran</option>
+                                                    <option value="Georgia">Round Baku - Gabala</option>
+                                                </select>
+                                            </div>
+                                            <div class="transportation-box__item">
+                                                <span class="transportation-box__desc">
+                                                    Day 1 - 13.06.22
+                                                </span>
+
+                                                <select name="" multiple id="select-service-3">
+                                                    <option value="Azerbaijan">Baku airport - Baku Hotel</option>
+                                                    <option value="Turkey">Round Baku - Lankaran</option>
+                                                    <option value="Georgia">Round Baku - Gabala</option>
+                                                </select>
+                                            </div>
+                                            <div class="transportation-box__item">
+                                                <span class="transportation-box__desc">
+                                                    Day 1 - 13.06.22
+                                                </span>
+
+                                                <select name="" multiple id="select-service-4">
+                                                    <option value="Azerbaijan">Baku airport - Baku Hotel</option>
+                                                    <option value="Turkey">Round Baku - Lankaran</option>
+                                                    <option value="Georgia">Round Baku - Gabala</option>
+                                                </select>
+                                            </div>
+                                            <div class="transportation-box__item">
+                                                <span class="transportation-box__desc">
+                                                    Day 1 - 13.06.22
+                                                </span>
+
+                                                <select name="" multiple id="select-service-5">
+                                                    <option value="Azerbaijan">Baku airport - Baku Hotel</option>
+                                                    <option value="Turkey">Round Baku - Lankaran</option>
+                                                    <option value="Georgia">Round Baku - Gabala</option>
+                                                </select>
+                                            </div>
+                                            <div class="transportation-box__item">
+                                                <span class="transportation-box__desc">
+                                                    Day 1 - 13.06.22
+                                                </span>
+
+                                                <select name="" multiple id="select-service-6">
+                                                    <option value="Azerbaijan">Baku airport - Baku Hotel</option>
+                                                    <option value="Turkey">Round Baku - Lankaran</option>
+                                                    <option value="Georgia">Round Baku - Gabala</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="info-text">
+                                            <img src="./static/assets/svg/info-circle.svg" alt="">
+                                            <p>
+                                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                                                sint.
+                                            </p>
+                                        </div>
+
+                                        <p class="transportation__title">
+                                            Do you want to add the guide?
+                                        </p>
+                                        <p style="font-size: 14px;">It makes your trip amazing to to discover
+                                            destionation with guide.</p>
+                                        <button type="button" class="add-guide-btn" onclick="OpenTab(3)">
+                                            <img src="./static/assets/svg/plus2.svg" alt="">
+                                            Add guide
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tour-program">
+                                <p class="content-title pb-2">Tour program</p>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Reservation code:</p>
+                                    <p class="tour-program__text">0000001</p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Date:</p>
+                                    <p class="tour-program__text">12.06/18.06</p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Cities:</p>
+                                    <p class="tour-program__text">Cities:
+                                        Baku, Gabala, Ganja Baku, Gabala, Ganja,Baku, Gabala, Ganja Gabala, Ganja...
+                                    </p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Hotel:</p>
+                                    <p class="tour-program__text">Absheron hotel, Shahdag hotel</p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Transportation:</p>
+                                    <p class="tour-program__text">Shaki tour</p>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="tour-program__footer">
+                                    <div class="mt-3 mt-sm-4">
+                                        <p class="subtotal">
+                                            Subtotal:
+                                            <span>$960</span>
+                                        </p>
+
+                                        <p class="total">
+                                            Total:
+                                            <span>$1240</span>
+                                        </p>
+                                    </div>
+
+                                    <a href="./confirm-success.html" class="tour-program__btn">
+                                        Confirm
+                                    </a>
+
+                                    <div class="info-text">
+                                        <img src="./static/assets/svg/info-circle.svg" alt="">
+                                        <p>
+                                            Your request send to our team for checking availability
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabcontent">
+                        <div class="transportation">
+                            <div class="transportation__left">
+                                <div class="transportation__container">
+                                    <h2 class="content-title mb-3">
+                                        Select guide for your tour program
+                                    </h2>
+                                    <p class="mb-4">
+                                        It makes your trip amazing to to discover destionation with guide.
+                                    </p>
+
+                                    <div class="transportation-box">
+                                        <div class="transportation-box__list transportation-box__list--check">
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox" checked>
+                                                    <span class="checkmark"></span>
+                                                    1. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    1. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    2. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    3. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    4. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    5. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    6. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    7. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    8. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    9. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    10. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    11. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    12. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                            <div class="transportation-box__item transportation-box__item--check">
+                                                <label class="d-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    13. (13.06.22) - Arrival, Transfer to Guba
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tour-program">
+                                <p class="content-title pb-2">Tour program</p>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Reservation code:</p>
+                                    <p class="tour-program__text">0000001</p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Date:</p>
+                                    <p class="tour-program__text">12.06/18.06</p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Cities:</p>
+                                    <p class="tour-program__text">Cities:
+                                        Baku, Gabala, Ganja Baku, Gabala, Ganja,Baku, Gabala, Ganja Gabala, Ganja...
+                                    </p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Hotel:</p>
+                                    <p class="tour-program__text">Absheron hotel, Shahdag hotel</p>
+                                </div>
+                                <div class="tour-program__row">
+                                    <p class="tour-program__label">Transportation:</p>
+                                    <p class="tour-program__text">Shaki tour</p>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="tour-program__footer">
+                                    <div class="mt-3 mt-sm-4">
+                                        <p class="subtotal">
+                                            Subtotal:
+                                            <span>$960</span>
+                                        </p>
+
+                                        <p class="total">
+                                            Total:
+                                            <span>$1240</span>
+                                        </p>
+                                    </div>
+
+                                    <a href="./confirm-success.html" class="tour-program__btn">
+                                        Confirm
+                                    </a>
+
+                                    <div class="info-text">
+                                        <img src="./static/assets/svg/info-circle.svg" alt="">
+                                         <p>
+                                            Your request send to our team for checking availability
+                                         </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="backdrop"></div>
+
+    <script src="./static/js/min/jquery.min.js"></script>
+    <script src="./static/js/min/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./static/js/min/select2.min.js"></script>
+    <!-- ADDITIONAL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-airbnb-style-datepicker@2.1.0/dist/vue-airbnb-style-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"></script>
+
+    <script src="./static/js/brief-tab.js"></script>
+    <script src="./static/js/calendar.js"></script>
+    <script src="./static/js/count.js"></script>
+    <script src="./static/js/dashboard-main.js"></script>
+
+    <script>
+        new SlimSelect({
+            select: '#destination-country',
+            placeholder: 'Choose country',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#destination-city',
+            placeholder: 'Choose city',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#choose-hotel',
+            placeholder: 'Choose Hotel',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#room-type',
+            placeholder: 'Choose room type',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#choose-hotel-2',
+            placeholder: 'Choose Hotel',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#room-type-2',
+            placeholder: 'Choose room type',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#choose-hotel-3',
+            placeholder: 'Choose Hotel',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#room-type-3',
+            placeholder: 'Choose room type',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#select-service',
+            placeholder: 'Select service',
+            allowDeselectOption: true,
+        })
+        new SlimSelect({
+            select: '#select-service-2',
+            placeholder: 'Select service',
+            allowDeselectOption: true,
+        })
+        new SlimSelect({
+            select: '#select-service-3',
+            placeholder: 'Select service',
+            allowDeselectOption: true,
+        })
+        new SlimSelect({
+            select: '#select-service-4',
+            placeholder: 'Select service',
+            allowDeselectOption: true,
+        })
+        new SlimSelect({
+            select: '#select-service-5',
+            placeholder: 'Select service',
+            allowDeselectOption: true,
+        })
+        new SlimSelect({
+            select: '#select-service-6',
+            placeholder: 'Select service',
+            allowDeselectOption: true,
+        })
+
+        // ADD DESTINATION CITY
+        $(".add-field").on("click", function () {
+            var id = Math.random().toString(16).slice(2)
+            addDestination();
+
+            function addDestination() {
+                html = getDestHtml();
+                $(".destination-box__wrapper").append(html);
+
+                new SlimSelect({
+                    select: `#destination-city-${id}`,
+                    allowDeselectOption: true,
+                    placeholder: 'Choose city'
+                });
+
+                new Vue({
+                    el: `#date-${id}`,
+                    data: {
+                        dateFormat: 'MM/DD',
+                        inputDateOne: '',
+                        inputDateTwo: '',
+                        mondayFirst: true,
+                    },
+                    methods: {
+                        formatDates: function (dateOne, dateTwo) {
+                            var formattedDates = ''
+                            if (dateOne) {
+                                formattedDates = dateFns.format(dateOne, this.dateFormat)
+                            }
+                            if (dateTwo) {
+                                formattedDates += ' - ' + dateFns.format(dateTwo, this.dateFormat)
+                            }
+                            return formattedDates
+                        },
+                    },
+                })
+            }
+
+            function getDestHtml() {
+                new_form =
+                    `
+              <div class="select-box">
+                <h4 class="dashboard-title">
+                    Arrival & Departure
+                </h4>
+                <select name="" id="destination-city-${id}">
+                    <option data-placeholder="true"></option>
+                    <option value="Baku">Baku</option>
+                </select>
+                <h4 class="dashboard-title mt-4">
+                    Destination city
+                </h4>
+                <div class="date-input-wrapper">
+                    <img src="./static/assets/svg/calendar.svg" alt="">
+                    <div id="date-${id}" class="h-100">
+                        <div class="datepicker-trigger h-100">
+                            <input type="text" id="datepicker-input-trigger-${id}"
+                                :value="formatDates(inputDateOne, inputDateTwo)"
+                                placeholder="Date..." readonly>
+                            <airbnb-style-datepicker
+                                :trigger-element-id="&apos;datepicker-input-trigger-${id}&apos;"
+                                :mode="&apos;range&apos;" :date-one="inputDateOne"
+                                :date-two="inputDateTwo"
+                                v-on:date-one-selected="function(val) { inputDateOne = val }"
+                                v-on:date-two-selected="function(val) { inputDateTwo = val }">
+                            </airbnb-style-datepicker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+                return new_form
+            }
+        })
+
+
+        // ADD ROOM TYPE
+        $(".add-room").each(function () {
+            $(this).on("click", function () {
+                var id = Math.random().toString(16).slice(2)
+                var form = $(this).parents(".select-box");
+
+                addRoom();
+
+                function addRoom() {
+                    html = getRoomHtml();
+
+                    var form_container = form.find(".room-type-container");
+                    form_container.append(html);
+
+                    new SlimSelect({
+                        select: `#room-type-${id}`,
+                        allowDeselectOption: true,
+                        placeholder: 'Select room type'
+                    });
+                }
+
+                function getRoomHtml() {
+                    new_form =
+                        `
+                    <h4 class="dashboard-title mt-4">
+                        Room type & placement
+                    </h4>
+                    <select name="" id="room-type-${id}">
+                        <option data-placeholder="true"></option>
+                        <option value="Azerbaijan">Standart</option>
+                    </select>
+                 `;
+                    return new_form
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

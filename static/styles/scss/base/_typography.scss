@@ -1,0 +1,9 @@
+@each $type, $weight in $font-types {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: normal;
+    src: url("../../assets/fonts/MazzardH-#{$type}.otf") format("truetype");
+    font-display: swap;
+  }
+}

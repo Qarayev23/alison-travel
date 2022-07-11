@@ -1,0 +1,143 @@
+.footer {
+    padding-top: rem(50);
+    padding-bottom: rem(20);
+
+    @include breakpoint-max($tablet-width) {
+        padding: rem(30) 0;
+    }
+
+    &.gray {
+        background-color: $secondary-color;
+    }
+
+    &.white-to-gray {
+        @include breakpoint-max($tablet-width) {
+            background-color: $secondary-color;
+
+        }
+    }
+
+    &.gray-to-white {
+        background-color: $secondary-color;
+        @include breakpoint-max($tablet-width) {
+            background-color: white;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include breakpoint-max($desktop-width) {
+            row-gap: rem(40);
+        }
+
+        @include breakpoint-max($tablet-width) {
+            row-gap: rem(30);
+        }
+    }
+
+    &__logo {
+        img {
+            width: rem(184);
+            height: rem(100);
+        }
+
+        @include breakpoint-max($desktop-width) {
+            width: 33.33%;
+        }
+
+        @include breakpoint-max($tablet-width) {
+            width: 100%;
+            text-align: center;
+
+            img {
+                width: rem(110);
+                height: rem(60);
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint-max($desktop-width) {
+            width: 33.33%;
+        }
+
+        @include breakpoint-max($tablet-width) {
+            display: none
+        }
+    }
+
+    &__title {
+        @include font(18, 600, 21);
+        margin-bottom: rem(10);
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: rem(10);
+        color: $dark;
+        @include font(14, 400, 30);
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+
+    &__socical-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(10);
+
+        a {
+            img {
+                width: rem(30);
+                height: rem(30);
+            }
+        }
+
+        @include breakpoint-max($desktop-width) {
+            width: 33.33%;
+        }
+
+        @include breakpoint-max($tablet-width) {
+            width: 100%;
+        }
+    }
+
+    &__payment {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(15);
+
+        @include breakpoint-max($desktop-width) {
+            width: 33.33%;
+        }
+
+        @include breakpoint-max($tablet-width) {
+            width: 100%;
+        }
+    }
+
+    &__copyright {
+        @include font(14, 300, 18);
+        margin-top: rem(50);
+        text-align: center;
+
+        @include breakpoint-max($tablet-width) {
+            margin-top: rem(30);
+        }
+
+        span {
+            color: $main-color;
+            font-weight: 600;
+        }
+    }
+}

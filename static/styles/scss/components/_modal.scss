@@ -1,0 +1,127 @@
+.modal {
+    box-shadow: 8px 8px 50px rgba(0, 0, 0, 0.03);
+
+    .btn-close {
+        position: absolute;
+        background: none;
+        right: rem(30);
+        top: rem(12);
+        z-index: 3;
+        filter: brightness(0);
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        img {
+            width: rem(30);
+        }
+    }
+
+    &-content {
+        overflow: auto;
+    }
+
+    &-body {
+        padding: rem(40);
+        z-index: 2;
+    }
+
+    &-title {
+        @include font(24, 700);
+        margin-bottom: rem(20);
+        text-align: center;
+    }
+
+    &-dialog {
+        max-width: rem(630);
+    }
+
+    @include breakpoint-max($mobile-width) {
+        &-content {
+            border: 0;
+        }
+
+        &-body {
+            padding: rem(30) rem(19);
+        }
+
+        &-title {
+            font-size: rem(24);
+            margin-bottom: rem(40);
+        }
+
+        .btn-close {
+            top: rem(36);
+        }
+    }
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: rem(20);
+    margin-bottom: rem(20);
+
+    &__wrapper {
+        display: flex;
+        gap: rem(15);
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    &__score {
+        flex-direction: column;
+        align-items: center;
+        @include font(20,600);
+
+        p {
+            font-size: rem(12);
+        }
+    }
+
+    .rating-radio {
+        display: none;
+    }
+
+    & :checked {
+        ~label {
+            svg {
+                path {
+                    fill: #F9DA5A;
+                }
+            }
+        }
+    }
+
+    label {
+        cursor: pointer;
+
+        svg {
+            path {
+                transition: 0.2s;
+            }
+        }
+
+        &:hover {
+            svg {
+                path {
+                    fill: #F9DA5A;
+                }
+            }
+        }
+
+        &:hover {
+            ~label {
+                svg {
+                    path {
+                        fill: #F9DA5A;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,141 @@
+.banner {
+    position: relative;
+    height: rem(420);
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #140E3333;
+        opacity: 0.2;
+    }
+
+    @include breakpoint-max($tablet-width) {
+        background-color: $dark-red;
+        height: rem(330);
+
+        &::before {
+            content: none;
+        }
+    }
+
+    &--short{
+        height: rem(250);
+        &::before {
+            opacity: 1;
+        }
+
+        .banner__img{
+            object-position: bottom;
+        }
+    }
+
+    &__wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        position: relative;
+        @include breakpoint-max($tablet-width){
+            z-index: initial;
+        }
+    }
+
+    &__title {
+        font-size: rem(48);
+        color: white;
+        margin-bottom: rem(40);
+
+        @include breakpoint-max($desktop-sm-width) {
+            font-size: rem(40);
+            margin-bottom: rem(20);
+        }
+
+        @include breakpoint-max($tablet-width) {
+            display: none;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        @include breakpoint-max($tablet-width) {
+            display: none;
+        }
+    }
+
+    &__filter {
+        background-color: white;
+        border-radius: rem(4);
+        padding: rem(40) rem(56);
+        display: flex;
+        align-items: center;
+        gap: rem(40);
+        width: fit-content;
+        margin: auto;
+
+        .g-input {
+            width: auto;
+            border-radius: rem(6);
+        }
+
+        .g-btn {
+            width: rem(40);
+            padding: 0;
+
+            &:hover {
+                @include breakpoint-min($desktop-sm-width){
+                    background: $main-color;
+                    transition: none;
+                }
+            }
+
+            span {
+                display: none;
+            }
+
+            @include breakpoint-max($desktop-sm-width) {
+                width: 100%;
+
+                span {
+                    display: block;
+                }
+
+                img {
+                    display: none;
+                }
+            }
+        }
+
+        @include breakpoint-max($desktop-sm-width) {
+            padding: rem(20);
+            flex-direction: column;
+            gap: rem(10);
+            width: 100%;
+
+            .g-input-wrapper {
+                width: 100%;
+            }
+
+            .g-input {
+                width: 100%;
+            }
+
+            .g-btn {
+                margin-top: rem(10);
+            }
+        }
+    }
+}

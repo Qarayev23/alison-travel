@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./static/styles/css/min/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/styles/css/min/select2.min.css">
+    <!-- ADDITIONAL START -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://unpkg.com/vue-airbnb-style-datepicker@2.1.0/dist/vue-airbnb-style-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- ADDITIONAL END -->
+    <link rel="stylesheet" href="./static/styles/css/main.min.css">
+    <title>ALISON TRAVEL</title>
+</head>
+
+<body>
+    <section class="dashboard">
+        <div class="profile">
+            <div class="g-container">
+                <div class="row">
+                    <div class="col-xl-11 mx-auto">
+                        <div class="profile-box">
+                            <div class="profile-box__user">
+                                <div class="profile-box__avatar">
+                                    <img src="./static/assets/svg/Ellipse 1.svg" alt="">
+                                </div>
+                                <div class="d-flex-flex-column">
+                                    <h4 class="profile-box__name">Duliaman Travel</h4>
+                                    <h4 class="profile-box__manager">Manager: Lola Talal</h4>
+                                </div>
+                            </div>
+
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">Agency name:</label>
+                                        <input type="text" class="d-input" value="Dulaiman Travel">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">Manager:</label>
+                                        <input type="text" class="d-input" value="Lola Talal">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">Country:</label>
+                                        <select name="" id="select-country">
+                                            <option value="USA">USA</option>
+                                            <option value="Azerbaijan">Azerbaijan</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">State:</label>
+                                        <select name="" id="select-state">
+                                            <option value="Naperville">Naperville</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">Email:</label>
+                                        <input type="text" class="d-input" value="deanna.curtis@example.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">Whatsapp</label>
+                                        <div class="phone-input">
+                                            <select name="" id="wp-number-select">
+                                                <option value="+994">+994</option>
+                                                <option value="+994">+994</option>
+                                                <option value="+994">+994</option>
+                                            </select>
+                                            <input type="text" class="d-input">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">Contact</label>
+                                        <div class="phone-input">
+                                            <select name="" id="phone-number-select-1">
+                                                <option value="+994">+994</option>
+                                                <option value="+994">+994</option>
+                                                <option value="+994">+994</option>
+                                            </select>
+                                            <input type="text" class="d-input">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="d-label">Contact</label>
+                                        <div class="phone-input">
+                                            <select name="" id="phone-number-select-2">
+                                                <option value="+994">+994</option>
+                                                <option value="+994">+994</option>
+                                                <option value="+994">+994</option>
+                                            </select>
+                                            <input type="text" class="d-input">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="./dashboard.html" class="btn-discard">
+                                            Discard
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn-save">
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./static/js/min/jquery.min.js"></script>
+    <script src="./static/js/min/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./static/js/min/select2.min.js"></script>
+
+    <!-- ADDITIONAL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.js"></script>
+
+    <script>
+        new SlimSelect({
+            select: '#select-country',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#select-state',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#wp-number-select',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#phone-number-select-1',
+            allowDeselectOption: true,
+        })
+
+        new SlimSelect({
+            select: '#phone-number-select-2',
+            allowDeselectOption: true,
+        })
+    </script>
+</body>
+
+</html>

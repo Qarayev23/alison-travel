@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/styles/css/min/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://unpkg.com/vue-airbnb-style-datepicker@2.1.0/dist/vue-airbnb-style-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./static/styles/css/main.min.css">
+    <title>ALISON TRAVEL</title>
+</head>
+
+<body>
+    <nav class="dashboard-navbar">
+        <div class="g-container">
+            <div class="dashboard-navbar__wrapper">
+                <a href="">
+                    <img src="./static/assets/svg/logo.svg" class="dashboard-navbar__img" alt="">
+                </a>
+
+                <ul class="dashboard-navbar-contact">
+                    <li class="dashboard-navbar-contact__item">
+                        <img src="./static/assets/svg/d-location.svg" alt="">
+                        11/31 Babek avenue, Babek Plaza I Baku, Azerbaijan
+                    </li>
+                    <li class="dashboard-navbar-contact__item">
+                        <img src="./static/assets/svg/d-envelope.svg" alt="">
+                        reservation@alisontravel.eu
+                    </li>
+                    <li class="dashboard-navbar-contact__item">
+                        <img src="./static/assets/svg/d-phone.svg" alt="">
+                        +994704049499 | +994702729499 | +994504949499
+
+                    </li>
+                    <li class="dashboard-navbar-contact__item">
+                        <img src="./static/assets/svg/d-web.svg" alt="">
+                        www.alisontravel.eu
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="voucher">
+            <div class="g-container">
+                <div class="row">
+                    <div class="col-xl-11 mx-auto">
+                        <div class="voucher__container">
+                            <div class="voucher__content">
+                                <h1 class="voucher__title">Travel voucher</h1>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label for="" class="d-label"> Agency name:</label>
+                                        <input type="text" class="d-input" value="Dulaiman Travel" readonly>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="" class="d-label">Client name:</label>
+                                        <input type="text" class="d-input" value="MR. MOUSA ABDULLAH ASIRI" readonly>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="" class="d-label">Alison's manager:</label>
+                                        <input type="text" class="d-input" value="Leyla Mehdiyeva" readonly>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="" class="d-label">Manager:</label>
+                                        <input type="text" class="d-input" value="Rola Talal" readonly>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <label for="" class="d-label">Adults:</label>
+                                                <input type="text" class="d-input" value="2" readonly>
+                                            </div>
+                                            <div class="col-4">
+                                                <label for="" class="d-label">Children:</label>
+                                                <input type="text" class="d-input" value="3" readonly>
+                                            </div>
+                                            <div class="col-4">
+                                                <label for="" class="d-label">Kids:</label>
+                                                <input type="text" class="d-input" value="1" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="" class="d-label">Voucher number:</label>
+                                        <input type="text" class="d-input" value="21-0124" readonly>
+                                    </div>
+                                </div>
+
+                                <p class="content-title mt-4 pt-3">HOTEL INFORMATION:</p>
+                            </div>
+                        </div>
+                        <div class="voucher__container">
+                            <p class="voucher__container__title">
+                                <span>#1</span>
+                                Baku
+                            </p>
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Hotel name:</label>
+                                    <input type="text" class="d-input" value="Fairmont Baku 5*" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Room type:</label>
+                                    <input type="text" class="d-input" value="2 Deluxe Sea view	" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Meal:</label>
+                                    <input type="text" class="d-input" value="Breakfast" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-in date/time:</label>
+                                            <input type="text" class="d-input" value="31-Jul-22; 15:00" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-out date/time:</label>
+                                            <input type="text" class="d-input" value="1-Aug-22; 17:00" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Accommodation type:</label>
+                                    <input type="text" class="d-input" value="DBL and Twin+baby cot" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Confirmation #:</label>
+                                    <input type="text" class="d-input" value="537433, 537434" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="voucher__container">
+                            <p class="voucher__container__title">
+                                <span>#2</span>
+                                Guba
+                            </p>
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Hotel name:</label>
+                                    <input type="text" class="d-input" value="Fairmont Baku 5*" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Room type:</label>
+                                    <input type="text" class="d-input" value="2 Deluxe Sea view	" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Meal:</label>
+                                    <input type="text" class="d-input" value="Breakfast" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-in date/time:</label>
+                                            <input type="text" class="d-input" value="31-Jul-22; 15:00" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-out date/time:</label>
+                                            <input type="text" class="d-input" value="1-Aug-22; 17:00" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Accommodation type:</label>
+                                    <input type="text" class="d-input" value="DBL and Twin+baby cot" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Confirmation #:</label>
+                                    <input type="text" class="d-input" value="537433, 537434" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="voucher__container">
+                            <p class="voucher__container__title">
+                                <span>#3</span>
+                                Gabala
+                            </p>
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Hotel name:</label>
+                                    <input type="text" class="d-input" value="Fairmont Baku 5*" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Room type:</label>
+                                    <input type="text" class="d-input" value="2 Deluxe Sea view	" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Meal:</label>
+                                    <input type="text" class="d-input" value="Breakfast" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-in date/time:</label>
+                                            <input type="text" class="d-input" value="31-Jul-22; 15:00" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-out date/time:</label>
+                                            <input type="text" class="d-input" value="1-Aug-22; 17:00" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Accommodation type:</label>
+                                    <input type="text" class="d-input" value="DBL and Twin+baby cot" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Confirmation #:</label>
+                                    <input type="text" class="d-input" value="537433, 537434" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="voucher__container">
+                            <p class="voucher__container__title">
+                                <span>#4</span>
+                                Baku
+                            </p>
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Hotel name:</label>
+                                    <input type="text" class="d-input" value="Fairmont Baku 5*" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Room type:</label>
+                                    <input type="text" class="d-input" value="2 Deluxe Sea view	" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Meal:</label>
+                                    <input type="text" class="d-input" value="Breakfast" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-in date/time:</label>
+                                            <input type="text" class="d-input" value="31-Jul-22; 15:00" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-out date/time:</label>
+                                            <input type="text" class="d-input" value="1-Aug-22; 17:00" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Accommodation type:</label>
+                                    <input type="text" class="d-input" value="DBL and Twin+baby cot" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Confirmation #:</label>
+                                    <input type="text" class="d-input" value="537433, 537434" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="voucher__container">
+                            <p class="voucher__container__title">
+                                <span>#5</span>
+                                Baku
+                            </p>
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Hotel name:</label>
+                                    <input type="text" class="d-input" value="Fairmont Baku 5*" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Room type:</label>
+                                    <input type="text" class="d-input" value="2 Deluxe Sea view	" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Meal:</label>
+                                    <input type="text" class="d-input" value="Breakfast" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-in date/time:</label>
+                                            <input type="text" class="d-input" value="31-Jul-22; 15:00" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="" class="d-label">Check-out date/time:</label>
+                                            <input type="text" class="d-input" value="1-Aug-22; 17:00" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Accommodation type:</label>
+                                    <input type="text" class="d-input" value="DBL and Twin+baby cot" readonly>
+                                </div>
+                                <div class="col-xl-4">
+                                    <label for="" class="d-label">Confirmation #:</label>
+                                    <input type="text" class="d-input" value="537433, 537434" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <div class="voucher__content">
+                                <h1 class="content-title mb-4">TRANSPORTATION:</h1>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label for="" class="d-label">Transfer type:</label>
+                                        <input type="text" class="d-input"
+                                            value="airport-hotel-airport; between regions" readonly>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="" class="d-label">Car type during program:</label>
+                                        <input type="text" class="d-input" value="minivan" readonly>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="" class="d-label">Guide/driver:</label>
+                                        <input type="text" class="d-input" value="English speaking guide" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 pt-lg-3">
+                            <div class="voucher__content">
+                                <p class="content-title content-title--purple mb-4">TOUR PROGRAM:</p>
+
+                                <ul class="program-list">
+                                    <li class="program-list__item">
+                                        <span>31-Jul-22</span>
+                                        airport-hotel transfer. Depends on flight
+                                    </li>
+                                    <li class="program-list__item">
+                                        <span>1-Aug-22</span>
+                                        Baku-Gabala transfer. Pick up at 10:00, drop-off at 3pm. On the way stop for
+                                        lunch or taking photo. Overnight in Gabala
+                                    </li>
+                                    <li class="program-list__item">
+                                        <span>2-Aug-22</span>
+                                        Sheki tour, overnight in Gabala. From 10am to 6-7pm
+                                    </li>
+                                    <li class="program-list__item">
+                                        <span>3-Aug-22</span>
+                                        airport-hotel transfer. Depends on flight
+                                    </li>
+                                    <li class="program-list__item">
+                                        <span>31-Jul-22</span>
+                                        airport-hotel transfer. Depends on flight
+                                    </li>
+                                    <li class="program-list__item">
+                                        <span>1-Aug-22</span>
+                                        Baku-Gabala transfer. Pick up at 10:00, drop-off at 3pm. On the way stop for
+                                        lunch or taking photo. Overnight in Gabala
+                                    </li>
+                                    <li class="program-list__item">
+                                        <span>2-Aug-22</span>
+                                        Sheki tour, overnight in Gabala. From 10am to 6-7pm
+                                    </li>
+                                    <li class="program-list__item">
+                                        <span>3-Aug-22</span>
+                                        airport-hotel transfer. Depends on flight
+                                    </li>
+                                </ul>
+
+                                <div class="info-text">
+                                    <img src="./static/assets/svg/info-circle.svg" alt="">
+                                    <p>
+                                        In case of any questions or emergency please contact tour manager: <b>Ms. Leyla Mehdiyeva</b> 
+                                        <br>
+                                        Contact number (call and Whatsapp): <b> +994702729499</b>
+                                    </p>
+                                </div>
+
+                                <button class="download-btn">
+                                    <img src="./static/assets/svg/download-icon.svg" alt="">
+                                    Download pdf
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="backdrop"></div>
+
+    <script src="./static/js/min/jquery.min.js"></script>
+    <script src="./static/js/min/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-airbnb-style-datepicker@2.1.0/dist/vue-airbnb-style-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.js"></script>
+</body>
+
+</html>
